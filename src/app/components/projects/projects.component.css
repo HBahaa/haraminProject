@@ -1,0 +1,12 @@
+.content{
+	margin: 10px;
+}
+p, ul{
+	margin-bottom: 20px;
+	color: #555;
+}
+
+.title, h5{
+	color: #c79462;
+	font-size: 17px;
+}

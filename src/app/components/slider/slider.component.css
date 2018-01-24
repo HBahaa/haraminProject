@@ -1,0 +1,82 @@
+#myCarousel{
+	margin: 20px 0;
+}
+.carousel-inner{
+	width: 90%;
+	margin: 0 auto;
+	border-radius: 30px;
+}
+.carousel-control.left
+{
+	background: none;
+}
+.carousel-control.right
+{
+	background: none;
+}
+
+.carousel-control
+{
+	position: absolute;
+	top: 45%;
+	bottom: 0;
+	left: 0;
+	width: 5%;
+	font-size: auto;
+	color: #000;
+	text-align: center;
+	opacity: 1;
+	text-shadow: none;
+	color: #4a1e03;
+}
+.carousel-control:hover
+{
+	color: #000;
+}
+.carousel-indicators
+{
+	bottom: -35px;
+}
+.carousel-indicators li
+{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin: 1px;
+	text-indent: -999px;
+	cursor: pointer;
+	background-color: #000\9;
+	background-color: rgba(0,0,0,0);
+	border: 1px solid #4a1e03;
+	border-radius: 50%;
+}
+.carousel-indicators .active
+{
+	width: 12px;
+	height: 12px;
+	margin: 0;
+	background-color: #4a1e03;
+}
+.carousel-caption
+{
+	position: absolute;
+	right: 0;
+	bottom: 12%;
+	left: 0;
+	z-index: 10;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 20px;
+	color: #fff;
+	text-align: right;
+	background: rgba(255,255,255,0.4);
+}
+.carousel-caption h2{
+	color: #4a1e03;
+}
+.content{
+	margin: 50px 20px;
+}
+.content h4{
+	color: #c69962;
+}

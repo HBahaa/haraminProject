@@ -1,0 +1,109 @@
+.state{
+	text-align: center;
+}
+.block1, .block2{
+	border-bottom: 1px solid #ccc;
+	margin-top: 10px;
+}
+.block1 .circle1 {
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	font-size: 20px;
+	color: #fff;
+	line-height: 70px;
+	text-align: center;
+	background: #4a1e03;
+	border: 10px solid #ddd;
+	margin: 0 auto;
+}
+.block1 .circle1 p{
+	margin: 0px;
+}
+.block1 h4{
+	color: #c79462;
+}
+.block2 .circle2 {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	font-size: 18px;
+	color: #fff;
+	line-height: 50px;
+	text-align: center;
+	background: #A7852B;
+	border: 10px solid #ddd;
+	margin: 0 auto;
+}
+.block3{
+	margin: 10px auto 0;
+	width: 275px;
+}
+.line {
+	width: 1px;
+	height: 140px;
+	border: 1px dashed #f00;
+	margin-top: 0px;
+	display: inline-block;
+}
+.circle3 {
+	width: 40px;
+	height: 40px;
+	background-color: #4a1e03;
+	border: solid 5px #ccc;
+	border-radius: 50%;
+	display: inline-block;
+}
+.draw{
+	width: 30%;
+	display: inline-block;
+}
+.data{
+	width: 68%;
+	display: inline-block;
+	text-align: right;
+}
+.block3 h5{
+	vertical-align: middle;
+	margin-right: 10px;
+	position: relative;
+	top: -10px;
+}
+.item{
+	height: 40px
+}
+.item h6{
+	margin-right: 30px;
+	margin-top: -4px;
+}
+.line1 {
+	width: 33px;
+	height: 1px;
+	border: 1px dashed #f00;
+	margin-right: -39px;
+	display: inline-block;
+	position: relative;
+	top: -30px;
+}
+.circle4 {
+	width: 35px;
+	height: 35px;
+	background-color: #4a1e03;
+	border: solid 5px #ccc;
+	border-radius: 50%;
+	margin-bottom: 12px;
+    margin-right: -10px;
+    position: relative;
+    bottom: -32px;
+
+}
+.circle4 p{
+	color: #fff;
+	text-align: center;
+	margin-top: 2px;
+}
+.block3 .draw p{
+	color: #fff;
+	text-align: center;
+	margin-top: 5px;
+}

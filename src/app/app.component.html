@@ -1,0 +1,23 @@
+<div class="container-fluid" *ngIf="flag">
+	<div class="row">
+		<div class="col-md-9 nopad">
+			<app-navbar1></app-navbar1>
+			<app-marquee></app-marquee>
+			<app-slider></app-slider>
+			<app-footer></app-footer>
+		</div>
+		<div class="col-md-3 nopad">
+			<app-sidebar></app-sidebar>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid" *ngIf="!flag">
+	<div class="row">
+		<div class="col-md-12">
+			<app-navbar2></app-navbar2>
+			<app-marquee></app-marquee>
+		</div>
+	</div>
+	<app-programs></app-programs>
+</div>
