@@ -80,3 +80,11 @@
 .content h4{
 	color: #c69962;
 }
+.carousel-caption ul li {
+	width: 50%;
+	float: left;
+}
+.carousel-caption a{
+	color: #fff;
+	display: block;
+}

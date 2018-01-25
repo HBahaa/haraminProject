@@ -11,7 +11,7 @@
   display: initial;
 }
 .scroll-v-250px {
-  max-height: 250px;
+  max-height: 400px;
   overflow-y: scroll;
 }
 .padding-v-xs {
@@ -26,5 +26,6 @@
 }
 .item{
   cursor: pointer;
-  
+  display: block;
+  margin-bottom: 6px;
 }

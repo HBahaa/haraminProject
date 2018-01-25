@@ -1,38 +1,45 @@
-<div class="container-fluid" *ngIf="!flag">
+<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
 			<app-navbar2></app-navbar2>
 			<app-marquee></app-marquee>
 		</div>
 	</div>
+
 	<div class="projects">
 		<div class="row">
-			<div class="col-md-3 col-sm-3 col-xs-5">
-				<app-list></app-list>
-			</div>
-			<div class="col-md-6 col-sm-6 col-xs-7">
-				<div class="content">
-					<p><span class="title">عنوان البرنامج:</span></p>
-					<p><span class="title">التكلفة التقديرية: </span></p>
-					<p><span class="title">فترة البرنامج: </span></p>
-					<p><span class="title">مدير البرنامج: </span></p>
-					<p><span class="title">تاريخ البداية المخطط: </span></p>
-					<p><span class="title">تاريخ البداية الفعلي: </span></p>
-					<p><span class="title">تاريخ البداية المخطط: </span></p>
-					<p><span class="title">تاريخ النهاية الفعلي: </span></p>
-					<p><span class="title">وصف البرنامج: </span></p>
-					<h5>اﻷهداف العامة: </h5>
-					<ul>
-						<li>نشر العلم الشرعي المؤصل</li>
-					</ul>
-					<h5>الاستراتيجيات العامة: </h5>
-					<ul>
-						<li>نشر العلم الشرعي المؤصل</li>
-					</ul>
-					<h5>المشاريع: </h5>
-					<ul>
-						<li>نشر العلم الشرعي المؤصل</li>
-					</ul>
+			<div class="col-md-9 col-sm-10">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>
+							<i class="fa fa-arrow-circle-left" aria-hidden="true"></i> الخطة في السطور
+						</h3>
+						<h4>اﻷهداف الاستراتيجة للخطة</h4>
+					</div>
+					<div class="col-md-4 col-sm-4 col-xs-5">
+						<app-list [list]="projects"></app-list>
+					</div>
+					<div class="col-md-8 col-sm-8 col-xs-7">
+						<div class="content">
+							<p><span class="title">عنوان المشروع:</span></p>
+							<p><span class="title">التكلفة التقديرية: </span></p>
+							<p><span class="title">فترة المشروع: </span></p>
+							<p><span class="title">مدير المشروع: </span></p>
+							<p><span class="title">تاريخ البداية المخطط: </span></p>
+							<p><span class="title">تاريخ البداية الفعلي: </span></p>
+							<p><span class="title">تاريخ النهاية المخطط: </span></p>
+							<p><span class="title">تاريخ النهاية الفعلي: </span></p>
+							<p><span class="title">وصف المشروع: </span></p>
+							<h5>اﻷهداف العامة نشر العلم: </h5>
+							<ul>
+								<li>نشر العلم الشرعي المؤصل</li>
+							</ul>
+							<h5>مخرجات المشروع: </h5>
+							<ul>
+								<li>نشر العلم الشرعي المؤصل</li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-2 hidden-xs">

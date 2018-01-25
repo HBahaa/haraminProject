@@ -1,4 +1,4 @@
-<div class="container-fluid" *ngIf="!flag">
+<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
 			<app-navbar2></app-navbar2>
@@ -14,25 +14,15 @@
 					</h3>
 					<h2>اﻷهداف الاستراتيجة للخطة</h2>
 					<ul>
-						<li>تطوير البيئة الخارجية وفق افضل الممارسات</li>
+						<li *ngFor="let goal of goals"> {{ goal.name }}</li>
 					</ul>
 
 					<h2>برامج الخطة</h2>
-					<div class="row">
-						<div class="col-md-4 col-sm-6">
-							<ul>
-								<li>الجودة والاعتماد</li>
-							</ul>
-						</div>
-						<div class="col-md-4 col-sm-6">
-							<ul>
-								<li>الجودة والاعتماد</li>
-							</ul>
-						</div>
-					</div>
+					<ul>
+						<a *ngFor="let program of programs" routerLink="/programs/{{program._id}}"><li> {{ program.name }}</li></a>
+					</ul>
 				</div>
 			</div>
-
 			<div class="col-md-5">
 				<div class="brdr">
 					<div class="row">	
@@ -123,16 +113,20 @@
 				</div>
 				<div class="row">
 					<div class="col-xs-4">
-						<h3>
-							البرامج
-						</h3>
-						<img src="http://via.placeholder.com/60x60" class="img-responsive">
+						<a routerLink="/programs">
+							<h3>
+								البرامج
+							</h3>
+							<img src="http://via.placeholder.com/60x60" class="img-responsive">
+						</a>
 					</div>
 					<div class="col-xs-4">
-						<h3>
-							المشاريع
-						</h3>
-						<img src="http://via.placeholder.com/60x60" class="img-responsive">
+						<a routerLink="/projects">
+							<h3>
+								المشاريع
+							</h3>
+							<img src="http://via.placeholder.com/60x60" class="img-responsive">
+						</a>
 					</div>
 					<div class="col-xs-4">
 						<h3>

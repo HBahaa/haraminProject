@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -6,14 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+	@Input() list : any;
 
-	constructor() { }
+	constructor() {
+		console.log("this.list",this.list)
+	}
 
 	ngOnInit() {
 	}
 
-	getData(e){
-		console.log(e.value)
-		console.log(e.id)
+	getData(id){
+		console.log(id)
 	}
 }
