@@ -47,6 +47,11 @@
 .nav > li > a > img{
 	margin-left: 10px;
 }
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover {
+	background-color: #682f0c;
+}
 .head{
 	/*padding:10px 20px;*/
 	padding:10px;

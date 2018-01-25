@@ -15,6 +15,7 @@ import { ProgramsComponent } from './components/programs/programs.component';
 import { StateComponent } from './components/state/state.component';
 import { ListComponent } from './components/list/list.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +31,17 @@ import { FooterComponent } from './components/footer/footer.component';
     ProgramsComponent,
     StateComponent,
     ListComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    // RouterModule.forRoot()
+    RouterModule.forRoot([
+      {path: 'programs', component: ProgramsComponent},
+      {path: 'projects', component: ProjectsComponent},
+      {path: 'plans', component: PlansComponent},
+      {path: '', component: HomeComponent},
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
