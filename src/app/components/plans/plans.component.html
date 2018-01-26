@@ -27,34 +27,34 @@
 				<div class="brdr">
 					<div class="row">	
 						<div class="col-xs-4">
-							<div class="c100 p12 green">
-								<span>12%</span>
+							<div class="c100 p{{ analytics.planPass }} green">
+								<span>{{ analytics.planPass }}</span>
 								<div class="slice">
 									<div class="bar"></div>
 									<div class="fill"></div>
 								</div>
 							</div>
-							<h4 class="text-center">heba</h4>
+							<h4 class="text-center">المنقضي من فترة تنفيذ الخطة</h4>
 						</div>
 						<div class="col-xs-4 brd_rght">
-							<div class="c100 p25 green">
-								<span>25%</span>
+							<div class="c100 p{{ analytics.WT }} green">
+								<span>{{ analytics.WT }}</span>
 								<div class="slice">
 									<div class="bar"></div>
 									<div class="fill"></div>
 								</div>
 							</div>
-							<h4 class="text-center">heba</h4>
+							<h4 class="text-center">نسبة الانجاز الكلية</h4>
 						</div>
 						<div class="col-xs-4 brd_rght">
-							<div class="c100 p85 green">
-								<span>85%</span>
+							<div class="c100 p{{ analytics.QA }} green">
+								<span>{{ analytics.QA }}</span>
 								<div class="slice">
 									<div class="bar"></div>
 									<div class="fill"></div>
 								</div>
 							</div>
-							<h4 class="text-center">heba</h4>
+							<h4 class="text-center">نسبة جودة اﻷداء</h4>
 						</div>
 					</div>
 				</div>
@@ -64,47 +64,47 @@
 						<div class="col-xs-6">
 							<div class="block2">
 								<div class="circle2">
-									<p>heba</p>
+									<p>{{ analytics.prglen }}</p>
 								</div>
-								<h5>heba bahaa</h5>
+								<h5>عدد البرامج الفاعلة</h5>
 							</div>
 							<div class="block2">
 								<div class="circle2">
-									<p>heba</p>
+									<p>{{ analytics.prjlen }}</p>
 								</div>
-								<h5>heba bahaa</h5>
+								<h5>عدد المشاريع الحالية</h5>
 							</div>
 						</div>
 						<div class="col-xs-6 brd_rght">
 							<div class="block3">
 								<div class="draw">
 									<div class="circle3">
-										<p>12</p>
+										<p>{{ analytics.LEN }}</p>
 										<div class="line"></div>
 									</div>
 								</div>
 								<div class="data">
-									<h5>heba</h5>
+									<h5>عدد المهام الحالية</h5>
 									<div class="item">
 										<div class="circle4">
-											<p>12</p>
+											<p>{{ analytics.ONT }}</p>
 											<div class="line1"></div>
 										</div>
-										<h6>text text</h6>
+										<h6>المهام المنتظمة</h6>
 									</div>
 									<div class="item">
 										<div class="circle4">
-											<p>12</p>
+											<p>{{ analytics.LTE }}</p>
 											<div class="line1"></div>
 										</div>
-										<h6>text text</h6>
+										<h6>المهام المتاخرة</h6>
 									</div>
 									<div class="item">
 										<div class="circle4">
-											<p>12</p>
+											<p> {{ analytics.STP }} </p>
 											<div class="line1"></div>
 										</div>
-										<h6>text text</h6>
+										<h6>المهام المتوقفة</h6>
 									</div>
 								</div>
 							</div>

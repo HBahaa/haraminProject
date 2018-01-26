@@ -1,59 +1,60 @@
 <div class="state">
 	<div class="block1">
 		<div class="circle1">
-			<p>heba</p>
+			<p *ngIf="!state.STT" style="font-size: 15px;">غير منتظم</p>
+			<p *ngIf="state.STT">منتظم</p>
 		</div>
-		<h4>heba bahaa</h4>
+		<h4>الحالة الراهنة</h4>
 	</div>
 
 	<div class="block2">
 		<div class="circle2">
-			<p>heba</p>
+			<p>{{ state.ptd }}</p>
 		</div>
-		<h5>heba bahaa</h5>
+		<h5>المنقضى من فترة التنفيذ</h5>
 	</div>
 	<div class="block2">
 		<div class="circle2">
-			<p>heba</p>
+			<p>{{ state.WT }}</p>
 		</div>
-		<h5>heba bahaa</h5>
+		<h5>نسبة الانجاز الكلية</h5>
 	</div>
 	<div class="block2">
 		<div class="circle2">
-			<p>heba</p>
+			<p>{{ state.QA }}</p>
 		</div>
-		<h5>heba bahaa</h5>
+		<h5>نسبة جودة اﻷداء</h5>
 	</div>
 
 	<div class="block3">
 		<div class="draw">
 			<div class="circle3">
-				<p>12</p>
+				<p>{{ state.LEN }}</p>
 				<div class="line"></div>
 			</div>
 		</div>
 		<div class="data">
-			<h5>heba</h5>
+			<h5>عدد المهام الحالية</h5>
 			<div class="item">
 				<div class="circle4">
-					<p>12</p>
+					<p>{{ state.ONT }}</p>
 					<div class="line1"></div>
 				</div>
-				<h6>text text</h6>
+				<h6>المهام المنتظمة</h6>
 			</div>
 			<div class="item">
 				<div class="circle4">
-					<p>12</p>
+					<p>{{ state.LTE }}</p>
 					<div class="line1"></div>
 				</div>
-				<h6>text text</h6>
+				<h6>المهام المتأخرة</h6>
 			</div>
 			<div class="item">
 				<div class="circle4">
-					<p>12</p>
+					<p>{{ state.STP }}</p>
 					<div class="line1"></div>
 				</div>
-				<h6>text text</h6>
+				<h6>المهام المتوقفة</h6>
 			</div>
 		</div>
 	</div>

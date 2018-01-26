@@ -16,7 +16,7 @@
 						<h4>اﻷهداف الاستراتيجة للخطة</h4>
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-5">
-						<app-list [list]="programs"></app-list>
+						<app-list [list]="programs" (change)="getData($event)" ></app-list>
 					</div>
 					<div class="col-md-8 col-sm-8 col-xs-7">
 						<div class="content">
@@ -46,7 +46,7 @@
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-2 hidden-xs">
-				<app-state></app-state>
+				<app-state [state]="analytics"></app-state>
 			</div>
 		</div>
 	</div>

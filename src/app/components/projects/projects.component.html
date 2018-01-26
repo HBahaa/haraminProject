@@ -17,13 +17,13 @@
 						<h4>اﻷهداف الاستراتيجة للخطة</h4>
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-5">
-						<app-list [list]="projects"></app-list>
+						<app-list [list]="projects" (change)="getData($event)"></app-list>
 					</div>
 					<div class="col-md-8 col-sm-8 col-xs-7">
 						<div class="content">
 							<p><span class="title">عنوان المشروع:</span>{{activeProject.name}}</p>
-							<p><span class="title">التكلفة التقديرية: </span>{{activeProject.name}}</p>
-							<p><span class="title">فترة المشروع: </span>{{activeProject.name}}</p>
+							<p><span class="title">التكلفة التقديرية: </span>{{activeProject.approxCost}}</p>
+							<p><span class="title">فترة المشروع: </span></p>
 							<p><span class="title">مدير المشروع: </span>{{activeProject.manager}}</p>
 							<p><span class="title">تاريخ البداية المخطط: </span>{{activeProject.datePlannedStart}}</p>
 							<p><span class="title">تاريخ البداية الفعلي: </span>{{activeProject.dateActualStart}}</p>
@@ -43,7 +43,7 @@
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-2 hidden-xs">
-				<app-state></app-state>
+				<app-state [state]="analytics"></app-state>
 			</div>
 		</div>
 	</div>

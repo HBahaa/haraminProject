@@ -21,6 +21,7 @@ import { ProjectsService } from './services/projects/projects.service';
 import { ProgramsService } from './services/programs/programs.service';
 import { GoalsService } from './services/goals/goals.service';
 import { GlobalService } from './services/global/global.service';
+import { AnalyticsService } from './services/analytics/analytics.service';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { GlobalService } from './services/global/global.service';
     ProjectsService,
     ProgramsService,
     GlobalService,
-    GoalsService
+    GoalsService,
+    AnalyticsService
   ],
   bootstrap: [AppComponent]
 })

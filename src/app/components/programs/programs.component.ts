@@ -1,51 +1,48 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/filter';
-import 'rxjs/Rx';
+import { Component } from '@angular/core';
 
 import { ProgramsService } from '../../services/programs/programs.service';
+import { AnalyticsService } from '../../services/analytics/analytics.service';
 
 @Component({
   selector: 'app-programs',
   templateUrl: './programs.component.html',
   styleUrls: ['./programs.component.css']
 })
-export class ProgramsComponent implements OnInit {
+export class ProgramsComponent {
 	id: any;
 	programs: any;
 	activeProgram :any = {};
+	analytics:any;
 
-	constructor(private route: ActivatedRoute, private programsService: ProgramsService) {
+	constructor(private programsService: ProgramsService, private analyticsService: AnalyticsService) {
 
-		console.log("this.route.snapshot.paramMap.get('id')", this.route.snapshot.paramMap.get('id'))
-
-		if (this.route.snapshot.paramMap.get('id')) {
-			this.getData(this.route.snapshot.paramMap.get('id'))
-		}
-		else{
-			this.getData('1514489024091')
-		}
+		this.getData('1514489024091')
 		this.getPrograms();
 	}
 
 	getPrograms(){
 		this.programsService.programs().subscribe((resp)=>{
-			// console.log(resp);
 			this.programs = resp;
 		}, (err)=>{
 			console.log(err);
 		})
 	}
-	getData(x){
-		this.programsService.getProgram(x).subscribe((data)=>{
+	getData(id){
+		this.getAnalytics(id);
+		this.programsService.getProgram(id).subscribe((data)=>{
 			this.activeProgram = data
 		}, (err)=>{
 			console.log("error", err)
 		})
 	}
 
-	ngOnInit() {
+	getAnalytics(id){
+		this.analyticsService.planAnalytics('/analytics/program/'+id).subscribe((res)=>{
+			console.log("res", res)
+			this.analytics = res;
+		}, (err)=>{
+			console.log("err", err)
+		})
 	}
 
 }

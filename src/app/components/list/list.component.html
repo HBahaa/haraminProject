@@ -1,20 +1,10 @@
 <div class="panel-group">
     <div class="panel panel-default">
-        <!-- <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" href="#filter1">
-                    Filter
-                </a>
-                <a class="pull-right" data-toggle="collapse" href="#filter1">
-                    <span class="glyphicon glyphicon-filter"></span>
-                </a>
-            </h4>
-        </div> -->
         <div id="filter1" class="panel-collapse collapse in">
             <div class="panel-body">
                 <div class="filter-setting">
                     <div id="coll-2" class="scroll-v-250px collapse in">
-                        <a class="item" *ngFor="let item of list" id="{{item._id}}" (click)="getData(item._id)">{{item.name}}</a>
+                        <a class="item" *ngFor="let item of list" id="{{item._id}}" (click)="dataChange(item._id)" >{{item.name}}</a>
                     </div>
                 </div>
             </div>
