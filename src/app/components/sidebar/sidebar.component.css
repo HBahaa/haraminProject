@@ -15,8 +15,17 @@
 	text-decoration: underline;
 	float: left;
 	color: #c79462;
+	margin-bottom: 20px;
 }
-
+#login{
+	background: #c79462;
+	float: left;
+	border-color: #4a1e03;
+}
+#login:hover,
+#login:focus{
+	background: #c79462;
+}
 .list-group > li{
 	margin-bottom: 15px;
 }

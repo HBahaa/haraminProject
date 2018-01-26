@@ -9,4 +9,8 @@ export class ProgramsService {
 	programs(){
 		return this.api.post('program/list');
 	}
+
+	getProgram(id){
+		return this.api.get('program/'+id);
+	}
 }

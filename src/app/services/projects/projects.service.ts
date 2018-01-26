@@ -10,4 +10,8 @@ export class ProjectsService {
 	projects(){
 		return this.api.post('project/list');
 	}
+
+	getProject(id){
+		return this.api.get('project/'+id);
+	}
 }

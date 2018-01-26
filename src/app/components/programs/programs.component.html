@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<app-navbar2></app-navbar2>
+			<app-navbar></app-navbar>
 			<app-marquee></app-marquee>
 		</div>
 	</div>	
@@ -20,15 +20,15 @@
 					</div>
 					<div class="col-md-8 col-sm-8 col-xs-7">
 						<div class="content">
-							<p><span class="title">عنوان البرنامج:</span></p>
-							<p><span class="title">التكلفة التقديرية: </span></p>
-							<p><span class="title">فترة البرنامج: </span></p>
-							<p><span class="title">مدير البرنامج: </span></p>
-							<p><span class="title">تاريخ البداية المخطط: </span></p>
-							<p><span class="title">تاريخ البداية الفعلي: </span></p>
-							<p><span class="title">تاريخ لنهاية المخطط: </span></p>
-							<p><span class="title">تاريخ النهاية الفعلي: </span></p>
-							<p><span class="title">وصف البرنامج: </span></p>
+							<p><span class="title">عنوان البرنامج:</span> {{activeProgram.name}} </p>
+							<p><span class="title">التكلفة التقديرية: </span> {{activeProgram.approxCost}}</p>
+							<p><span class="title">فترة البرنامج: </span> </p>
+							<p><span class="title">مدير البرنامج: </span> {{activeProgram.manager}}</p>
+							<p><span class="title">تاريخ البداية المخطط: </span> {{activeProgram.datePlannedStart}}</p>
+							<p><span class="title">تاريخ البداية الفعلي: </span> {{activeProgram.dateActualStart}}</p>
+							<p><span class="title">تاريخ لنهاية المخطط: </span> {{activeProgram.datePlannedEnd}}</p>
+							<p><span class="title">تاريخ النهاية الفعلي: </span> {{activeProgram.dateActualEnd}}</p>
+							<p><span class="title">وصف البرنامج: </span> {{activeProgram.description}}</p>
 							<h5>اﻷهداف العامة: </h5>
 							<ul>
 								<li>نشر العلم الشرعي المؤصل</li>

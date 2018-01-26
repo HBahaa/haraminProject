@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { GlobalService } from '../../services/global/global.service';
 import { GoalsService } from '../../services/goals/goals.service';
-import { ProjectsService } from '../../services/projects/projects.service';
+import { ProgramsService } from '../../services/programs/programs.service';
 
 @Component({
   selector: 'app-slider',
@@ -9,12 +9,12 @@ import { ProjectsService } from '../../services/projects/projects.service';
   styleUrls: ['./slider.component.css']
 })
 export class SliderComponent {
-	projects: any;
+	programs: any;
 	goals: any;
 	vision: any;
 	message: any;
 
-	constructor(private projectsService: ProjectsService,
+	constructor(private programsService: ProgramsService,
 				private goalsService: GoalsService,
 				private globalService: GlobalService) {
 
@@ -22,9 +22,9 @@ export class SliderComponent {
 	}
 
 	getContant(){
-		this.projectsService.projects().subscribe((res)=>{
-			this.projects = res;
-			console.log("this.projects.length",this.projects.length)
+		this.programsService.programs().subscribe((res)=>{
+			this.programs = res;
+			console.log("this.programs.length",this.programs.length)
 		})
 		this.goalsService.goals().subscribe((res)=>{
 			this.goals = res;

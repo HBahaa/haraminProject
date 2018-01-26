@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ProjectsService } from '../../services/projects/projects.service';
@@ -8,21 +8,20 @@ import { ProjectsService } from '../../services/projects/projects.service';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent{
 	id: any;
 	projects: any;
 	activeProject :any = {};
 
 	constructor(private route: ActivatedRoute, private projectsService: ProjectsService) {
+		
 		if (this.route.snapshot.paramMap.get('id')) {
-			this.id = this.route.snapshot.paramMap.get('id');
-		}else{
-			this.id = 1514490491256;
+			this.getData(this.route.snapshot.paramMap.get('id'))
+		}
+		else{
+			this.getData('1514490491256')
 		}
 		this.getProjects();
-	}
-
-	ngOnInit() {
 	}
 
 	getProjects(){
@@ -36,6 +35,12 @@ export class ProjectsComponent implements OnInit {
 
 	getData(id){
 		console.log(id)
+		this.id = this.route.snapshot.paramMap.get('id');
+		this.projectsService.getProject(id).subscribe((res)=>{
+			this.activeProject = res;
+		}, (err)=>{
+			console.log("error", err)
+		})
 	}
 
 }
