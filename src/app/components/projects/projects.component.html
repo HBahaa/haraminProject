@@ -30,9 +30,9 @@
 							<p><span class="title">تاريخ النهاية المخطط: </span>{{activeProject.datePlannedEnd}}</p>
 							<p><span class="title">تاريخ النهاية الفعلي: </span>{{activeProject.dateActualEnd}}</p>
 							<p><span class="title">وصف المشروع: </span>{{activeProject.description}}</p>
-							<h5>اﻷهداف العامة نشر العلم: </h5>
+							<h5>مراحل المشروع: </h5>
 							<ul>
-								<li>نشر العلم الشرعي المؤصل</li>
+								<li *ngFor="let stage of activeProject.stages"> {{stage.name}} </li>
 							</ul>
 							<h5>مخرجات المشروع: </h5>
 							<ul>
