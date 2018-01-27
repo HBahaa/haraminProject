@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { GoalsService } from '../../services/goals/goals.service';
 import { ProgramsService } from '../../services/programs/programs.service';
 import { AnalyticsService } from '../../services/analytics/analytics.service';
-
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-plans',
@@ -23,7 +23,12 @@ export class PlansComponent{
 
 	getGoals(){
 		this.goalsService.goals().subscribe((resp)=>{
+
+			$.each(resp, (index, value)=>{
+				value['name'] = value['name'].replace(/\d+./, '');
+			});
 			this.goals = resp;
+
 		}, (err)=>{
 			console.log("err", err)
 		})

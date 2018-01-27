@@ -14,7 +14,10 @@ export class ListComponent{
 	constructor() {}
 
 	dataChange(id){
+		this.id = id;
 		this.change.emit(id)
 	}
-
+	isActive(id) {
+    	return this.id === id;
+  	};
 }

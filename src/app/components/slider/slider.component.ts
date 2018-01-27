@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { GlobalService } from '../../services/global/global.service';
 import { GoalsService } from '../../services/goals/goals.service';
 import { ProgramsService } from '../../services/programs/programs.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-slider',
@@ -24,12 +25,13 @@ export class SliderComponent {
 	getContant(){
 		this.programsService.programs().subscribe((res)=>{
 			this.programs = res;
-			console.log("this.programs.length",this.programs.length)
-		})
+		});
 		this.goalsService.goals().subscribe((res)=>{
+			$.each(res, (index, value)=>{
+				value['name'] = value['name'].replace(/\d+./, '');
+			});
 			this.goals = res;
-			console.log("this.goals.length",this.goals.length)
-		})
+		});
 		this.globalService.global().subscribe((resp=>{
 			this.message = resp[0].data.message;
 			this.vision = resp[0].data.vision;

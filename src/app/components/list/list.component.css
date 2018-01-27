@@ -29,3 +29,6 @@
   display: block;
   margin-bottom: 6px;
 }
+a.active{
+  color: #c79462;
+}

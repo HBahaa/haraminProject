@@ -14,7 +14,10 @@
 						<h3>
 							<i class="fa fa-arrow-circle-left" aria-hidden="true"></i> الخطة في السطور
 						</h3>
-						<h4>اﻷهداف الاستراتيجة للخطة</h4>
+						<div class="prj_title">
+							<img src="./assets/images/projects.png">
+							<h4>{{activeProject.name}}</h4>
+						</div>
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-5">
 						<app-list [list]="projects" (change)="getData($event)"></app-list>

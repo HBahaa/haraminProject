@@ -14,7 +14,7 @@
 					</h3>
 					<h2>اﻷهداف الاستراتيجة للخطة</h2>
 					<ul>
-						<li *ngFor="let goal of goals"> {{ goal.name }}</li>
+						<li *ngFor="let goal of goals"> {{ "- " +goal.name }}</li>
 					</ul>
 
 					<h2>برامج الخطة</h2>
@@ -66,16 +66,16 @@
 								<div class="circle2">
 									<p>{{ analytics.prglen }}</p>
 								</div>
-								<h5>عدد البرامج الفاعلة</h5>
+								<h4>عدد البرامج الفاعلة</h4>
 							</div>
 							<div class="block2">
 								<div class="circle2">
 									<p>{{ analytics.prjlen }}</p>
 								</div>
-								<h5>عدد المشاريع الحالية</h5>
+								<h4>عدد المشاريع الحالية</h4>
 							</div>
 						</div>
-						<div class="col-xs-6 brd_rght">
+						<div class="col-md-6 col-xs-4 brd_rght">
 							<div class="block3">
 								<div class="draw">
 									<div class="circle3">
@@ -84,27 +84,27 @@
 									</div>
 								</div>
 								<div class="data">
-									<h5>عدد المهام الحالية</h5>
+									<h4>عدد المهام الحالية</h4>
 									<div class="item">
 										<div class="circle4">
 											<p>{{ analytics.ONT }}</p>
 											<div class="line1"></div>
 										</div>
-										<h6>المهام المنتظمة</h6>
+										<h5>المهام المنتظمة</h5>
 									</div>
 									<div class="item">
 										<div class="circle4">
 											<p>{{ analytics.LTE }}</p>
 											<div class="line1"></div>
 										</div>
-										<h6>المهام المتاخرة</h6>
+										<h5>المهام المتاخرة</h5>
 									</div>
 									<div class="item">
 										<div class="circle4">
 											<p> {{ analytics.STP }} </p>
 											<div class="line1"></div>
 										</div>
-										<h6>المهام المتوقفة</h6>
+										<h5>المهام المتوقفة</h5>
 									</div>
 								</div>
 							</div>
@@ -117,7 +117,7 @@
 							<h3>
 								البرامج
 							</h3>
-							<img src="http://via.placeholder.com/60x60" class="img-responsive">
+							<img src="assets/images/programs.png" class="img-responsive">
 						</a>
 					</div>
 					<div class="col-xs-4">
@@ -125,14 +125,14 @@
 							<h3>
 								المشاريع
 							</h3>
-							<img src="http://via.placeholder.com/60x60" class="img-responsive">
+							<img src="assets/images/projects.png" class="img-responsive">
 						</a>
 					</div>
 					<div class="col-xs-4">
 						<h3>
 							التقارير
 						</h3>
-						<img src="http://via.placeholder.com/60x60" class="img-responsive">
+						<img src="assets/images/reports.png" class="img-responsive">
 					</div>
 				</div>
 			</div>

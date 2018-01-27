@@ -4,7 +4,7 @@
             <div class="panel-body">
                 <div class="filter-setting">
                     <div id="coll-2" class="scroll-v-250px collapse in">
-                        <a class="item" *ngFor="let item of list" id="{{item._id}}" (click)="dataChange(item._id)" >{{item.name}}</a>
+                        <a class="item" *ngFor="let item of list" id="{{item._id}}" (click)="dataChange(item._id)" [class.active]="isActive(item._id)" >{{item.name}}</a>
                     </div>
                 </div>
             </div>

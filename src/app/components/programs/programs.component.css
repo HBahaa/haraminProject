@@ -4,6 +4,9 @@
 .content{
 	margin: 10px;
 }
+.content p, .content p span{
+  font-size: 18px; 
+}
 p, ul{
 	margin-bottom: 20px;
 	color: #555;
@@ -20,4 +23,13 @@ h3{
 h4{
   margin-bottom: 20px;
   color: #4a1e03;
+}
+.prg_title img{
+	display: inline-block;
+	float: right;
+	width: 55px;
+}
+.prg_title h4{
+	display: inline-block;
+	line-height: 30px;
 }

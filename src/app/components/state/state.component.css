@@ -63,18 +63,20 @@
 	display: inline-block;
 	text-align: right;
 }
-.block3 h5{
+.block3 h4{
 	vertical-align: middle;
 	margin-right: 10px;
 	position: relative;
-	top: -10px;
+	top: -3px;
+	color: #4a1e03;
 }
 .item{
 	height: 40px
 }
-.item h6{
-	margin-right: 30px;
+.item h5{
+	margin-right: 35px;
 	margin-top: -4px;
+	color: #337ab7;
 }
 .line1 {
 	width: 33px;
@@ -88,13 +90,13 @@
 .circle4 {
 	width: 35px;
 	height: 35px;
-	background-color: #4a1e03;
+	background-color: #A7852B;
 	border: solid 5px #ccc;
 	border-radius: 50%;
 	margin-bottom: 12px;
     margin-right: -10px;
     position: relative;
-    bottom: -32px;
+    bottom: -34px;
 
 }
 .circle4 p{
