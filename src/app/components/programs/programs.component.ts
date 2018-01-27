@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import * as $ from 'jquery';
 
 import { ProgramsService } from '../../services/programs/programs.service';
+import { ProjectsService } from '../../services/projects/projects.service';
 import { GoalsService } from '../../services/goals/goals.service';
 import { AnalyticsService } from '../../services/analytics/analytics.service';
 
@@ -16,7 +17,8 @@ export class ProgramsComponent {
 	activeProgram :any = {};
 	analytics:any;
 
-	constructor(private programsService: ProgramsService, private goalsService: GoalsService, private analyticsService: AnalyticsService) {
+	constructor(private programsService: ProgramsService, private goalsService: GoalsService,
+				private analyticsService: AnalyticsService, private projectsService: ProjectsService) {
 
 		this.getData('1514489024091')
 		this.getPrograms();
@@ -42,10 +44,49 @@ export class ProgramsComponent {
 				// 	})
 				// }
 			})
-			this.activeProgram = data
+			data['projects'] = [];
+			// this.projectsService.projectsInProgram().subscribe(prjs=>{
+
+			// 	console.log("prjs", prjs)
+				
+			// 	// $.each(prjs, (i, p)=>{
+			// 	// 	this.activeProgram.projects.push(p.name);
+			// 	// })
+			// 	// console.log("activeProgram", this.activeProgram);
+			// 	// this.activeProgram = data
+			// }, (err)=>{
+			// 	console.log("error", err)
+			// })
+
+			var settings = {
+					"async": true,
+					"crossDomain": true,
+					"url": "http://35.190.171.93:8001/api/project/list",
+					"method": "POST",
+					"headers": {
+					"content-type": "application/json",
+					"cache-control": "no-cache",
+					"postman-token": "29e34188-41c2-39de-6e02-c4a7590d46f2",
+					'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+        			"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Key"
+				},
+				"processData": false,
+				"data": "{\"program\": \"1514489024091\"}"
+			}
+
+			$.ajax(settings).done((response)=>{
+				$.each(response, (i, p)=>{
+					data['projects'].push(p.name);
+				})
+				this.activeProgram = data
+			});
+
+			
 		}, (err)=>{
 			console.log("error", err)
 		})
+
+
 	}
 
 	getAnalytics(id){
