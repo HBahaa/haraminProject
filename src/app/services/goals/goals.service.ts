@@ -6,8 +6,13 @@ import { ApiService } from '../api/api.service';
 export class GoalsService {
 
 	constructor(private api: ApiService) { }
+
 	goals(){
 		return this.api.post('goal/list');
+	}
+
+	getGoal(id){
+		return this.api.get('goal/'+id);
 	}
 
 }

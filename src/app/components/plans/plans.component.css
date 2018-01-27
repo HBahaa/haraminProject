@@ -13,6 +13,12 @@
 	/*margin: 0 0.15em 0.1em 0;*/
 	margin: 0 auto;
 }
+.c100.orange .bar, .c100.orange .fill{
+	border-color: #4a1e03 !important;
+}
+.c100.orange:hover span{
+	color: #4a1e03 !important;
+}
 .block2{
 	margin-bottom: 20px;
 }
@@ -34,80 +40,6 @@
 	margin-right: 20px;
 	line-height: 70px;
 }
-
-.block3{
-	margin: 10px auto 0;
-	/*width: 275px;*/
-	min-height: 200px;
-}
-.line {
-	width: 1px;
-	height: 140px;
-	border: 1px dashed #f00;
-	margin-right: 15px;
-	display: inline-block;
-}
-.circle3 {
-	width: 40px;
-	height: 40px;
-	background-color: #4a1e03;
-	border: solid 5px #ccc;
-	border-radius: 50%;
-	display: inline-block;
-}
-.draw{
-	width: 30%;
-	display: inline-block;
-}
-.data{
-	/*width: 68%;*/
-	display: inline-block;
-	text-align: right;
-}
-.block3 h5{
-	vertical-align: middle;
-	margin-right: 10px;
-	position: relative;
-	top: 2px;
-}
-.item{
-	height: 40px
-}
-.item h5{
-	margin-right: 30px;
-	margin-top: -4px;
-}
-.line1 {
-	width: 35px;
-	height: 1px;
-	border: 1px dashed #f00;
-	margin-right: -40px;
-	display: inline-block;
-	position: relative;
-	top: -32px;
-}
-.circle4 {
-	width: 35px;
-	height: 35px;
-	background-color: #4a1e03;
-	border: solid 5px #ccc;
-	border-radius: 50%;
-	margin-bottom: 12px;
-    margin-right: -23px;
-    position: relative;
-    bottom: -40px;
-
-}
-.circle4 p{
-	color: #fff;
-	text-align: center;
-	margin-top: 2px;
-}
-.block3 .draw p{
-	color: #fff;
-	text-align: center;
-	margin-top: 5px;
-}
 h3, h4, h5{
 	color: #4a1e03;
 }
@@ -117,6 +49,10 @@ h3{
 }
 img{
 	margin: 0 auto;
+}
+.content{
+	border-left: 1px solid #ddd;
+	width: 90%;
 }
 .content h2{
 	font-size: 27px;
@@ -129,4 +65,20 @@ img{
 
 ul li{
 	font-size: 17px;
+}
+ul{
+	margin-bottom: 50px;
+	width: 96%;
+}
+.plan{
+
+}
+.plan img{
+	display: inline-block;
+	float: right;
+	width: 55px;
+}
+.plan h3{
+	display: inline-block;
+	line-height: 15px;
 }

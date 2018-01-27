@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import * as $ from 'jquery';
 
 import { ProgramsService } from '../../services/programs/programs.service';
+import { GoalsService } from '../../services/goals/goals.service';
 import { AnalyticsService } from '../../services/analytics/analytics.service';
 
 @Component({
@@ -14,7 +16,7 @@ export class ProgramsComponent {
 	activeProgram :any = {};
 	analytics:any;
 
-	constructor(private programsService: ProgramsService, private analyticsService: AnalyticsService) {
+	constructor(private programsService: ProgramsService, private goalsService: GoalsService, private analyticsService: AnalyticsService) {
 
 		this.getData('1514489024091')
 		this.getPrograms();
@@ -30,6 +32,16 @@ export class ProgramsComponent {
 	getData(id){
 		this.getAnalytics(id);
 		this.programsService.getProgram(id).subscribe((data)=>{
+			$.each(data['goals'], (index, value)=>{
+				this.goalsService.getGoal(value.l1).subscribe((goal)=>{
+					value.l1 = goal['name'].replace(/\d+./, '');
+				})
+				// if (value.l2) {
+				// 	this.goalsService.getGoal(value.l2).subscribe((subGoal)=>{
+				// 		value.l2 = subGoal['name'].replace(/\d+./, '');
+				// 	})
+				// }
+			})
 			this.activeProgram = data
 		}, (err)=>{
 			console.log("error", err)
@@ -38,7 +50,6 @@ export class ProgramsComponent {
 
 	getAnalytics(id){
 		this.analyticsService.planAnalytics('/analytics/program/'+id).subscribe((res)=>{
-			console.log("res", res)
 			this.analytics = res;
 		}, (err)=>{
 			console.log("err", err)
