@@ -20,7 +20,7 @@ export class PlansComponent{
 		this.getPrograms();
 		this.getAnalytics();
 	}
-
+ 
 	getGoals(){
 		this.goalsService.goals().subscribe((resp)=>{
 

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import * as $ from 'jquery';
 
 import { ProjectsService } from '../../services/projects/projects.service';
 import { AnalyticsService } from '../../services/analytics/analytics.service';
@@ -34,7 +33,7 @@ export class ProjectsComponent{
 		this.projectsService.getProject(id).subscribe((res)=>{
 			
 			if (res['dateActualStart'] != 'NaN-NaN-NaN' && res['dateActualEnd'] != 'NaN-NaN-NaN') {
-				res['prjPeriod'] = this.monthDiff(res['dateActualStart'] , res['dateActualEnd']);
+				res['prjPeriod'] = this.monthDiff(res['dateActualStart'] , res['dateActualEnd']) + "شهر ";
 			}
 			else{
 				res['prjPeriod'] = 'غير متاح'

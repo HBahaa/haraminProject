@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import * as $ from 'jquery';
 
 import { ProgramsService } from '../../services/programs/programs.service';
-import { ProjectsService } from '../../services/projects/projects.service';
 import { GoalsService } from '../../services/goals/goals.service';
 import { AnalyticsService } from '../../services/analytics/analytics.service';
 
@@ -18,7 +17,7 @@ export class ProgramsComponent {
 	analytics:any;
 
 	constructor(private programsService: ProgramsService, private goalsService: GoalsService,
-				private analyticsService: AnalyticsService, private projectsService: ProjectsService) {
+				private analyticsService: AnalyticsService) {
 
 		this.getData('1514489024091')
 		this.getPrograms();
@@ -34,6 +33,24 @@ export class ProgramsComponent {
 	getData(id){
 		this.getAnalytics(id);
 		this.programsService.getProgram(id).subscribe((data)=>{
+			if (data['dateActualStart'] != 'NaN-NaN-NaN' && data['dateActualEnd'] != 'NaN-NaN-NaN' ) {
+				data['prgPeriod'] = this.monthDiff(data['dateActualStart'] , data['dateActualEnd']) + "شهر ";
+			}
+			else{
+				data['prgPeriod'] = 'غير متاح';
+			}
+			if (data['dateActualStart'] == 'NaN-NaN-NaN') {
+				data['dateActualStart'] = 'غير متاح'
+			}
+			if (data['dateActualEnd'] == 'NaN-NaN-NaN') {
+				data['dateActualEnd'] = 'غير متاح'
+			}
+			if (data['datePlannedStart'] == 'NaN-NaN-NaN') {
+				data['datePlannedStart'] = 'غير متاح'
+			}
+			if (data['datePlannedEnd'] == 'NaN-NaN-NaN') {
+				data['datePlannedEnd'] = 'غير متاح'
+			}
 			$.each(data['goals'], (index, value)=>{
 				this.goalsService.getGoal(value.l1).subscribe((goal)=>{
 					value.l1 = goal['name'].replace(/\d+./, '');
@@ -71,7 +88,8 @@ export class ProgramsComponent {
         			"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Key"
 				},
 				"processData": false,
-				"data": "{\"program\": \"1514489024091\"}"
+				"data": `{\"program\": ${id}}`
+				// "data": "{\"program\": \"1514489024091\"}"
 			}
 
 			$.ajax(settings).done((response)=>{
@@ -98,6 +116,8 @@ export class ProgramsComponent {
 	}
 
 	monthDiff(d1, d2) {
+		d1 = new Date(d1);
+		d2 = new Date(d2);
 	    var months;
 	    months = (d2.getFullYear() - d1.getFullYear()) * 12;
 	    months -= d1.getMonth() + 1;
