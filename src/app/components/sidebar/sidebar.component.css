@@ -2,7 +2,7 @@
 	background-color: #eee;
 	padding: 20px;
 	color: #c79462;
-	height: 800px;
+	min-height: 815px;
 }
 .sidebar > h2{
 	color: #4a1e03;

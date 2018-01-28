@@ -24,6 +24,7 @@ export class SliderComponent {
 
 	getContant(){
 		this.programsService.programs().subscribe((res)=>{
+			console.log("res slider", res)
 			this.programs = res;
 		});
 		this.goalsService.goals().subscribe((res)=>{
