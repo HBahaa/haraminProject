@@ -35,11 +35,11 @@
 							<p><span class="title">وصف المشروع: </span>{{activeProject.description}}</p>
 							<h5>مراحل المشروع: </h5>
 							<ul>
-								<li *ngFor="let stage of activeProject.stages"> {{stage.name}} </li>
+								<li *ngFor="let stage of activeProject.stages"> {{ "- " +stage.name}} </li>
 							</ul>
 							<h5>مخرجات المشروع: </h5>
 							<ul>
-								<li *ngFor="let item of activeProject.outputs "> {{ item }} </li>
+								<li *ngFor="let item of activeProject.outputs "> {{ "- " + item }} </li>
 							</ul>
 						</div>
 					</div>

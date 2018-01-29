@@ -15,7 +15,7 @@
 	text-decoration: underline;
 	float: left;
 	color: #c79462;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
 #login{
 	background: #c79462;
@@ -25,6 +25,10 @@
 #login:hover,
 #login:focus{
 	background: #c79462;
+}
+.list-group{
+	text-align: justify;
+	list-style-type: disc;
 }
 .list-group > li{
 	margin-bottom: 15px;

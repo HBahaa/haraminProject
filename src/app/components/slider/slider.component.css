@@ -7,7 +7,9 @@
 	border-radius: 30px;
 }
 .carousel-inner > .item > img{
-	height: 350px;
+	/*height: 350px;*/
+	height: 50%;
+	width: 100%;
 }
 .carousel-control.left,
 .carousel-control.right
