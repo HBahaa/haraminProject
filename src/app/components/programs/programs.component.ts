@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as $ from 'jquery';
+import { ActivatedRoute } from '@angular/router';
 
 import { ProgramsService } from '../../services/programs/programs.service';
 import { GoalsService } from '../../services/goals/goals.service';
@@ -17,12 +18,24 @@ export class ProgramsComponent {
 	analytics:any;
 
 	constructor(private programsService: ProgramsService, private goalsService: GoalsService,
-				private analyticsService: AnalyticsService) {
+				private analyticsService: AnalyticsService, private route: ActivatedRoute) {
 
-		this.getData('1514489024091')
+		this.route.params.subscribe(params => {
+       		this.id = params['id'];
+       		if (this.id) {
+       			this.getData(this.id);
+       		}
+       		else{
+       			this.getData('1514489024091');
+       		}
+   		});
+		
 		this.getPrograms();
 	}
 
+	ngOnInit() {
+
+   }
 	getPrograms(){
 		this.programsService.programs().subscribe((resp)=>{
 			this.programs = resp;

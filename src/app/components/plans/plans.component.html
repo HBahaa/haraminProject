@@ -26,7 +26,7 @@
 					</div>
 					
 					<ul>
-						<a *ngFor="let program of programs"><li> {{ program.name }}</li></a>
+						<a *ngFor="let program of programs" [routerLink]="['/programs', {id: program._id}]"><li> {{ program.name }}</li></a>
 					</ul>
 				</div>
 			</div>
@@ -44,7 +44,7 @@
 							<h4 class="text-center">المنقضي من فترة تنفيذ الخطة</h4>
 						</div>
 						<div class="col-xs-4 brd_rght">
-							<div class="c100 p{{ analytics.WT }} orange">
+				 			<div class="c100 p{{ analytics.WT }} orange">
 								<span>{{ analytics.WT }}</span>
 								<div class="slice">
 									<div class="bar"></div>
