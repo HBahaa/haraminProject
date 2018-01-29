@@ -97,8 +97,10 @@ export class ProgramsComponent {
 					"content-type": "application/json",
 					"cache-control": "no-cache",
 					"postman-token": "29e34188-41c2-39de-6e02-c4a7590d46f2",
-					'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-        			"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Key"
+        			"Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+					"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Key",
+					"Access-Control-Allow-Origin":"*",
+					"Allow-Control-Allow-Origin":"*"
 				},
 				"processData": false,
 				"data": `{\"program\": ${id}}`
