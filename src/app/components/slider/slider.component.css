@@ -7,8 +7,8 @@
 	border-radius: 30px;
 }
 .carousel-inner > .item > img{
-	/*height: 350px;*/
-	height: 50%;
+	height: 400px;
+	/*height: 50%;*/
 	width: 100%;
 }
 .carousel-control.left,
@@ -95,7 +95,7 @@
 	color: #fff;
 	text-align: right;
 	background: rgba(255,255,255,0.4);
-	background: linear-gradient(-90deg, rgba(255,255,255,0.4), transparent);
+	background: linear-gradient(-90deg, rgba(255,255,255,0.5), transparent);
 }
 .carousel-caption h2{
 	color: #4a1e03;
@@ -115,6 +115,13 @@
 	width: 50%;
 	float: left;
 	font-size: 17px;
+	color: #333;
+}
+.message h1{
+	color: #4a1e03
+}
+.message h3{
+	color: #333
 }
 .carousel-caption a{
 	color: #fff;
