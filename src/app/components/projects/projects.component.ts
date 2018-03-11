@@ -59,6 +59,10 @@ export class ProjectsComponent{
 	}
 	getAnalytics(id){
 		this.analyticsService.planAnalytics('/analytics/project/'+id).subscribe((res)=>{
+			console.log(this.activeProject);
+			res['completed'] = this.activeProject.completed;
+			res['quality'] = this.activeProject.quality;
+			res['status'] = this.activeProject.status;
 			this.analytics = res;
 		}, (err)=>{
 			console.log("err", err)

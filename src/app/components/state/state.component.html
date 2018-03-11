@@ -1,27 +1,34 @@
 <div class="state">
 	<div class="block1">
 		<div class="circle1">
-			<p *ngIf="!state.STT" style="font-size: 15px;">غير منتظم</p>
-			<p *ngIf="state.STT">منتظم</p>
+			<p *ngIf="state.status == 1 ? true : false">منتظم</p>
+			<p *ngIf="state.status == 2 ? true : false">منتظم</p>
+			<p *ngIf="state.status == 3 ? true : false">منتظم</p>
+			<p *ngIf="state.status == 4 ? true : false">منتظم</p>
+			<p *ngIf="state.status == 5 ? true : false">منتظم</p>
+			<p *ngIf="state.status == 6 ? true : false">منتظم</p>
+			<p *ngIf="state.status == 7 ? true : false">منتظم</p>
+			<p *ngIf="state.status == 8 ? true : false">منتظم</p>
+			<p *ngIf="!state.status "> مجهول </p>
 		</div>
 		<h4>الحالة الراهنة</h4>
 	</div>
 
 	<div class="block2">
 		<div class="circle2">
-			<p>{{ state.ptd }}</p>
+			<p>{{ state.ptd < 0 ? 0: state.ptd }}</p>
 		</div>
 		<h4>المنقضى من فترة التنفيذ</h4>
 	</div>
 	<div class="block2">
 		<div class="circle2">
-			<p>{{ state.WT }}</p>
+			<p>{{ state.completed ? Math.ceil(state.completed)  : 0 }}</p>
 		</div>
 		<h4>نسبة الانجاز الكلية</h4>
 	</div>
 	<div class="block2">
 		<div class="circle2">
-			<p>{{ state.QA }}</p>
+			<p>{{ state.quality ? Math.ceil(state.quality)  : 0 }}</p>
 		</div>
 		<h4>نسبة جودة اﻷداء</h4>
 	</div>

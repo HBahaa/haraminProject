@@ -124,6 +124,11 @@ export class ProgramsComponent {
 
 	getAnalytics(id){
 		this.analyticsService.planAnalytics('/analytics/program/'+id).subscribe((res)=>{
+			console.log(this.activeProgram);
+			res['completed'] = this.activeProgram.completed;
+			res['quality'] = this.activeProgram.quality;
+			res['status'] = this.activeProgram.status;
+
 			this.analytics = res;
 		}, (err)=>{
 			console.log("err", err)
