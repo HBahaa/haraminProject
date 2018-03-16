@@ -1,5 +1,5 @@
 #myCarousel{
-	margin: 20px 0;
+	margin: 20px 0;	
 }
 .carousel-inner{
 	width: 90%;
@@ -95,7 +95,7 @@
 	color: #fff;
 	text-align: right;
 	background: rgba(255,255,255,0.4);
-	background: linear-gradient(-90deg, rgba(255,255,255,0.5), transparent);
+	background: linear-gradient(-90deg, rgba(255,255,255,0.7), transparent);
 }
 .carousel-caption h2{
 	color: #4a1e03;
@@ -115,13 +115,15 @@
 	width: 50%;
 	float: left;
 	font-size: 17px;
-	color: #333;
+	color: #4a1e03;
 }
 .message h1{
 	color: #4a1e03
 }
 .message h3{
-	color: #333
+	color: #2b160a;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 18px;
 }
 .carousel-caption a{
 	color: #fff;

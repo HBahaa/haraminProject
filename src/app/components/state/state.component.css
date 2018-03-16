@@ -6,12 +6,12 @@
 	margin-top: 10px;
 }
 .block1 .circle1 {
-	width: 90px;
-	height: 90px;
+	width: 120px;
+	height: 120px;
 	border-radius: 50%;
 	font-size: 20px;
 	color: #fff;
-	line-height: 70px;
+	line-height: 100px;
 	text-align: center;
 	background: #4a1e03;
 	border: 10px solid #ddd;

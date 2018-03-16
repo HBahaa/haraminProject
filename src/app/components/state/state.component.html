@@ -1,18 +1,18 @@
 <div class="state">
-	<div class="block1">
-		<div class="circle1">
-			<p *ngIf="state.status == 1 ? true : false">منتظم</p>
-			<p *ngIf="state.status == 2 ? true : false">منتظم</p>
-			<p *ngIf="state.status == 3 ? true : false">منتظم</p>
-			<p *ngIf="state.status == 4 ? true : false">منتظم</p>
-			<p *ngIf="state.status == 5 ? true : false">منتظم</p>
-			<p *ngIf="state.status == 6 ? true : false">منتظم</p>
-			<p *ngIf="state.status == 7 ? true : false">منتظم</p>
-			<p *ngIf="state.status == 8 ? true : false">منتظم</p>
-			<p *ngIf="!state.status "> مجهول </p>
+		<div class="block1">
+			<div class="circle1">
+				<p style="font-size: 11px;" *ngIf="state.status == 1 ? true : false"> تحت الدراسة والاعتماد </p>
+				<p *ngIf="state.status == 2 ? true : false"> لم يبدء بعد </p>
+				<p *ngIf="state.status == 3 ? true : false"> متوقف مؤقتا </p>
+				<p *ngIf="state.status == 4 ? true : false">منتظم</p>
+				<p *ngIf="state.status == 5 ? true : false"> متأخر</p>
+				<p *ngIf="state.status == 6 ? true : false"> ملغى</p>
+				<p *ngIf="state.status == 7 ? true : false"> منتهي</p>
+				<p style="font-size: 11px;" *ngIf="state.status == 8 ? true : false"> البيانات غير مكتملة</p>
+				<p *ngIf="!state.status "> مجهول </p>
+			</div>
+			<h4>الحالة الراهنة</h4>
 		</div>
-		<h4>الحالة الراهنة</h4>
-	</div>
 
 	<div class="block2">
 		<div class="circle2">
@@ -22,13 +22,13 @@
 	</div>
 	<div class="block2">
 		<div class="circle2">
-			<p>{{ state.completed ? Math.ceil(state.completed)  : 0 }}</p>
+			<p>{{ state.completed ? this.Math.ceil(state.completed)  : 0 }}</p>
 		</div>
 		<h4>نسبة الانجاز الكلية</h4>
 	</div>
 	<div class="block2">
 		<div class="circle2">
-			<p>{{ state.quality ? Math.ceil(state.quality)  : 0 }}</p>
+			<p>{{ state.quality ? this.Math.ceil(state.quality)  : 0 }}</p>
 		</div>
 		<h4>نسبة جودة اﻷداء</h4>
 	</div>

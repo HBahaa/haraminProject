@@ -8,7 +8,10 @@ import { Component, Input } from '@angular/core';
 export class StateComponent {
 	
 	@Input() state : any;
-
-	constructor() { }
+	Math: any;
+	
+	constructor() {
+	    this.Math = Math; 
+	}
 
 }
