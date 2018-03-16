@@ -31,19 +31,38 @@
 							<p><span class="title">تاريخ البداية الفعلي: </span> {{activeProgram.dateActualStart}}</p>
 							<p><span class="title">تاريخ لنهاية المخطط: </span> {{activeProgram.datePlannedEnd}}</p>
 							<p><span class="title">تاريخ النهاية الفعلي: </span> {{activeProgram.dateActualEnd}}</p>
-							<p><span class="title">وصف البرنامج: </span> {{activeProgram.description}}</p>
+							<p><span class="title">وصف البرنامج: </span> 
+								{{activeProgram.description!= "" ? activeProgram.description : "لا يوجد"}}
+							</p>
+
 							<h5>اﻷهداف العامة: </h5>
 							<ul>
 								<li *ngFor="let goal of activeProgram.goals">{{ "- " + goal.l1}}</li>
 							</ul>
-							<!-- <h5>الاستراتيجيات العامة: </h5>
-							<ul>
-								<li>نشر العلم الشرعي المؤصل</li>
-							</ul> -->
+
 							<h5>المشاريع: </h5>
 							<ul>
 								<li *ngFor="let project of activeProgram.projects">{{ "- " + project}}</li>
 							</ul>
+
+							<!-- <ul *ngIf="activeProgram.goals.length > 0;else elseBlock1">
+								<li *ngFor="let goal of activeProgram.goals">{{ "- " + goal.l1}}</li>
+							</ul>
+							<ng-template #elseBlock1>
+								<ul>
+									<li>لا يوجد</li>
+								</ul>
+							</ng-template>
+
+							<h5>المشاريع: </h5>
+							<ul *ngIf="activeProgram.projects.length > 0;else elseBlock2">
+								<li *ngFor="let project of activeProgram.projects">{{ "- " + project}}</li>
+							</ul>
+							<ng-template #elseBlock2>
+								<ul>
+									<li>لا يوجد</li>
+								</ul>
+							</ng-template> -->
 						</div>
 					</div>
 				</div>

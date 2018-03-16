@@ -61,7 +61,7 @@ export class ProjectsComponent{
 			}
 
 			this.activeProject = res;
-			console.log("this.activeProject", this.activeProject)
+			console.log("this.activeProject", this.activeProject.outputs.length)
 			this.getAnalytics(id);
 
 		}, (err)=>{
