@@ -14,8 +14,10 @@ export class PlansComponent{
 	goals: any;
 	programs: any;
 	analytics: any;
+	Math: any;
 
 	constructor(private goalsService: GoalsService, private programsService: ProgramsService, private analyticsService: AnalyticsService) {
+		this.Math = Math;
 		this.getGoals();
 		this.getPrograms();
 		this.getAnalytics();
