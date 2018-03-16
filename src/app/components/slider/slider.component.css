@@ -99,7 +99,7 @@
 	background: linear-gradient(-60deg, rgba(113, 113, 113, 0.6), transparent);
 }
 .carousel-caption h2{
-	color: #4a1e03;
+	/*color: #4a1e03;*/
 	font-size: 44px;
 	margin-top: 0px;
 }
@@ -119,7 +119,7 @@
 	/*color: #4a1e03;*/
 }
 .message h1{
-	color: #4a1e03
+	/*color: #4a1e03*/
 }
 .message p{
 	width: 80%;
