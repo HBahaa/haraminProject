@@ -33,12 +33,24 @@ export class ProjectsComponent{
 	getData(id){
 		this.projectsService.getProject(id).subscribe((res)=>{
 			
-			if (res['dateActualStart'] != 'NaN-NaN-NaN' && res['dateActualEnd'] != 'NaN-NaN-NaN') {
-				res['prjPeriod'] = this.monthDiff(res['dateActualStart'] , res['dateActualEnd']) + " شهر ";
+			if (res['datePlannedStart'] != 'NaN-NaN-NaN' && res['datePlannedEnd'] != 'NaN-NaN-NaN' ) {
+				var period = this.monthDiff(res['datePlannedStart'] , res['datePlannedEnd']);
+				// res['prgPeriod'] = this.monthDiff(res['dateActualStart'] , res['dateActualEnd']) + "شهر ";
+				if (period['days'] > 0 || period['months'] > 0) {
+					if(period['months'] || period['months'] != 0){
+						res['prgPeriod'] = period['months'] + " شهر  "
+					}
+					if(period['days'] || period['days'] != 0){
+						if(res['prgPeriod']) res['prgPeriod'] += period['days'] + " يوم ";
+						else res['prgPeriod'] = period['days'] + " أيام/يوم ";
+						
+					}
+				}
 			}
 			else{
-				res['prjPeriod'] = 'غير متاح'
+				res['prgPeriod'] = 'غير متاح';
 			}
+
 			if (res['dateActualStart'] == 'NaN-NaN-NaN') {
 				res['dateActualStart'] = 'غير متاح'
 			}
@@ -73,6 +85,7 @@ export class ProjectsComponent{
 			res['completed'] = this.activeProject.completed;
 			res['quality'] = this.activeProject.quality;
 			res['status'] = this.activeProject.status;
+			res['passed'] = this.activeProject.passed || -1;
 			this.analytics = res;
 		}, (err)=>{
 			console.log("err", err)
@@ -96,7 +109,7 @@ export class ProjectsComponent{
 	    	"months": months,
 	    	"days": days
 	    }
-	    // return diff
-	    return months <= 0 ? 0 : months;
+	    return diff
+	    // return months <= 0 ? 0 : months;
 	}
 }

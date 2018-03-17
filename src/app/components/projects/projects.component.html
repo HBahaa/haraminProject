@@ -24,14 +24,14 @@
 					</div>
 					<div class="col-md-8 col-sm-8 col-xs-7">
 						<div class="content">
-							<p><span class="title">عنوان المشروع:</span>{{activeProject.name}}</p>
-							<p><span class="title">التكلفة التقديرية: </span>{{activeProject.approxCost}}</p>
-							<p><span class="title">فترة المشروع: </span>{{activeProject.prjPeriod}}</p>
-							<p><span class="title">مدير المشروع: </span>{{activeProject.manager}}</p>
-							<p><span class="title">تاريخ البداية المخطط: </span>{{activeProject.datePlannedStart}}</p>
-							<p><span class="title">تاريخ البداية الفعلي: </span>{{activeProject.dateActualStart}}</p>
-							<p><span class="title">تاريخ النهاية المخطط: </span>{{activeProject.datePlannedEnd}}</p>
-							<p><span class="title">تاريخ النهاية الفعلي: </span>{{activeProject.dateActualEnd}}</p>
+							<p><span class="title">عنوان المشروع:</span>{{activeProject.name || " غير متاح "}}</p>
+							<p><span class="title">التكلفة التقديرية: </span>{{activeProject.approxCost || " غير متاح "}}</p>
+							<p><span class="title">فترة المشروع: </span>{{activeProject.prgPeriod || " غير متاح "}}</p>
+							<p><span class="title">مدير المشروع: </span>{{activeProject.manager || " غير متاح "}}</p>
+							<p><span class="title">تاريخ البداية المخطط: </span>{{activeProject.datePlannedStart || " غير متاح "}}</p>
+							<p><span class="title">تاريخ البداية الفعلي: </span>{{activeProject.dateActualStart || " غير متاح "}}</p>
+							<p><span class="title">تاريخ النهاية المخطط: </span>{{activeProject.datePlannedEnd || " غير متاح "}}</p>
+							<p><span class="title">تاريخ النهاية الفعلي: </span>{{activeProject.dateActualEnd || " غير متاح "}}</p>
 							<p>
 								<span class="title">وصف المشروع: </span>
 								{{activeProject.description != "" ? activeProject.description : "لا يوجد"}}

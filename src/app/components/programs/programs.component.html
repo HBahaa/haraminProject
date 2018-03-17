@@ -23,14 +23,14 @@
 					</div>
 					<div class="col-md-8 col-sm-8 col-xs-7">
 						<div class="content">
-							<p><span class="title">عنوان البرنامج:</span> {{activeProgram.name}} </p>
-							<p><span class="title">التكلفة التقديرية: </span> {{activeProgram.approxCost}}</p>
-							<p><span class="title">فترة البرنامج: </span>{{activeProgram.prgPeriod}} </p>
-							<p><span class="title">مدير البرنامج: </span> {{activeProgram.manager}}</p>
-							<p><span class="title">تاريخ البداية المخطط: </span> {{activeProgram.datePlannedStart}}</p>
-							<p><span class="title">تاريخ البداية الفعلي: </span> {{activeProgram.dateActualStart}}</p>
-							<p><span class="title">تاريخ لنهاية المخطط: </span> {{activeProgram.datePlannedEnd}}</p>
-							<p><span class="title">تاريخ النهاية الفعلي: </span> {{activeProgram.dateActualEnd}}</p>
+							<p><span class="title">عنوان البرنامج:</span> {{activeProgram.name || " غير متاح "}} </p>
+							<p><span class="title">التكلفة التقديرية: </span> {{activeProgram.approxCost || " غير متاح "}}</p>
+							<p><span class="title">فترة البرنامج: </span>{{activeProgram.prgPeriod || " غير متاح "}} </p>
+							<p><span class="title">مدير البرنامج: </span> {{activeProgram.manager || " غير متاح "}}</p>
+							<p><span class="title">تاريخ البداية المخطط: </span> {{activeProgram.datePlannedStart || " غير متاح "}}</p>
+							<p><span class="title">تاريخ البداية الفعلي: </span> {{activeProgram.dateActualStart || " غير متاح "}}</p>
+							<p><span class="title">تاريخ لنهاية المخطط: </span> {{activeProgram.datePlannedEnd || " غير متاح "}}</p>
+							<p><span class="title">تاريخ النهاية الفعلي: </span> {{activeProgram.dateActualEnd || " غير متاح " }}</p>
 							<p><span class="title">وصف البرنامج: </span> 
 								{{activeProgram.description!= "" ? activeProgram.description : "لا يوجد"}}
 							</p>

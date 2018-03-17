@@ -48,18 +48,24 @@ export class ProgramsComponent {
 	getData(id){
 		
 		this.programsService.getProgram(id).subscribe((data)=>{
-			if (data['dateActualStart'] != 'NaN-NaN-NaN' && data['dateActualEnd'] != 'NaN-NaN-NaN' ) {
-				var period = this.monthDiff(data['dateActualStart'] , data['dateActualEnd']);
+			if (data['datePlannedStart'] != 'NaN-NaN-NaN' && data['datePlannedEnd'] != 'NaN-NaN-NaN' ) {
+				var period = this.monthDiff(data['datePlannedStart'] , data['datePlannedEnd']);
 				// data['prgPeriod'] = this.monthDiff(data['dateActualStart'] , data['dateActualEnd']) + "شهر ";
-				if (period['days'] > 0) {
-					data['prgPeriod'] = period['months'] + " شهر و " + period['days'] + " يوم ";
-				}else{
-					data['prgPeriod'] = period['months'] + " شهر ";	
+				if (period['days'] > 0 || period['months'] > 0) {
+					if(period['months'] || period['months'] != 0){
+						data['prgPeriod'] = period['months'] + " شهر  "
+					}
+					if(period['days'] || period['days'] != 0){
+						if(data['prgPeriod']) data['prgPeriod'] += period['days'] + " يوم ";
+						else data['prgPeriod'] = period['days'] + " أيام/يوم ";
+						
+					}
 				}
 			}
 			else{
 				data['prgPeriod'] = 'غير متاح';
 			}
+			
 			if (data['dateActualStart'] == 'NaN-NaN-NaN') {
 				data['dateActualStart'] = 'غير متاح'
 			}
@@ -129,6 +135,7 @@ export class ProgramsComponent {
 			res['completed'] = this.activeProgram.completed;
 			res['quality'] = this.activeProgram.quality;
 			res['status'] = this.activeProgram.status;
+			res['passed'] = this.activeProgram.passed || -1;
 			this.analytics = res;
 		}, (err)=>{
 			console.log("err", err)

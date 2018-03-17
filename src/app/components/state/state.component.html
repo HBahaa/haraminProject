@@ -16,13 +16,13 @@
 
 	<div class="block2">
 		<div class="circle2">
-			<p>{{ state.ptd < 0 ? 0: state.ptd }}</p>
+			<p>{{ state.passed && state.passed < 0 ? 0: state.passed }}</p>
 		</div>
 		<h4>المنقضى من فترة التنفيذ</h4>
 	</div>
 	<div class="block2">
 		<div class="circle2">
-			<p>{{ state.completed ? this.Math.ceil(state.completed)  : 0 }}</p>
+			<p>{{ state.completed ? Math.ceil(state.completed) : 0   }}</p>
 		</div>
 		<h4>نسبة الانجاز الكلية</h4>
 	</div>
