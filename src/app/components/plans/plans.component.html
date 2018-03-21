@@ -34,7 +34,7 @@
 				<div class="brdr">
 					<div class="row">	
 						<div class="col-xs-4">
-							<div class="c100 p{{ analytics.planPass }} orange">
+							<div class="c100 p{{ this.Math.ceil(analytics.planPass) }} orange">
 								<span>{{ this.Math.ceil(analytics.planPass) }}</span>
 								<div class="slice">
 									<div class="bar"></div>
@@ -44,7 +44,7 @@
 							<h4 class="text-center">المنقضي من فترة تنفيذ الخطة</h4>
 						</div>
 						<div class="col-xs-4 brd_rght">
-				 			<div class="c100 p{{ analytics.WT }} orange">
+				 			<div class="c100 p{{ this.Math.ceil(analytics.WT) }} orange">
 								<span>{{ this.Math.ceil(analytics.WT) }}</span>
 								<div class="slice">
 									<div class="bar"></div>
@@ -54,7 +54,7 @@
 							<h4 class="text-center">نسبة الانجاز الكلية</h4>
 						</div>
 						<div class="col-xs-4 brd_rght">
-							<div class="c100 p{{ analytics.QA }} orange">
+							<div class="c100 p{{ this.Math.ceil(analytics.QA) }} orange">
 								<span>{{ this.Math.ceil(analytics.QA) }}</span>
 								<div class="slice">
 									<div class="bar"></div>
