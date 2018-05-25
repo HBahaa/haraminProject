@@ -10,12 +10,14 @@ export class ApiService {
 
 	constructor(public http: HttpClient) {}
 
-	get(endpoint: string) {
+	// get(endpoint: string) {
 
-		return this.http.get(this.url + '/' + endpoint);
-	}
+	// 	return this.http.get(this.url + '/' + endpoint);
+	// }
 
-	post(endpoint: string,  body?: any, reqOpts?: any) {
-		return this.http.post(this.url + '/' + endpoint, body, reqOpts);
-	}
+	// post(endpoint: string,  body?: any, reqOpts?: any) {
+
+ //    	return this.http.post(this.url + '/' + endpoint, body, reqOpts);
+	// }
+
 }

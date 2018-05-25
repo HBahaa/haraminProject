@@ -14,24 +14,27 @@ export class ProjectsComponent{
 	projects: any;
 	activeProject :any = {};
 	analytics: any;
+	token: any;
 
 	constructor(private projectsService: ProjectsService, private analyticsService: AnalyticsService,
 				private usersService: UsersService) {
-		
-		this.getData('1514490491256')
-		this.getProjects();
+		this.token = localStorage.getItem("token");
+		if (this.token) {
+			this.getData('1514490491256')
+			this.getProjects();
+		}
 	}
 
 	getProjects(){
-		this.projectsService.projects().subscribe((resp)=>{
+		this.projectsService.projects(this.token).then((resp)=>{
 			this.projects = resp;
-		}, (err)=>{
+		}).catch(err=>{
 			console.log(err);
 		})
 	}
 
 	getData(id){
-		this.projectsService.getProject(id).subscribe((res)=>{
+		this.projectsService.getProject(id, this.token).then((res)=>{
 			
 			if (res['datePlannedStart'] != 'NaN-NaN-NaN' && res['datePlannedEnd'] != 'NaN-NaN-NaN' ) {
 				var period = this.monthDiff(res['datePlannedStart'] , res['datePlannedEnd']);
@@ -65,7 +68,7 @@ export class ProjectsComponent{
 			}
 			
 			if (res['manager']) {
-				this.usersService.getUser(res['manager']).subscribe(user=>{
+				this.usersService.getUser(res['manager'], this.token).then(user=>{
 					res['manager'] = user['name']
 				})
 			}else{
@@ -73,22 +76,21 @@ export class ProjectsComponent{
 			}
 
 			this.activeProject = res;
-			console.log("this.activeProject", this.activeProject.outputs.length)
 			this.getAnalytics(id);
 
-		}, (err)=>{
+		}).catch(err=>{
 			console.log("error", err)
 		})
 	}
 	getAnalytics(id){
-		this.analyticsService.planAnalytics('/analytics/project/'+id).subscribe((res)=>{
+		this.analyticsService.planAnalytics('analytics/project/'+id, this.token).then((res)=>{
 			res['completed'] = this.activeProject.completed;
 			res['quality'] = this.activeProject.quality;
 			res['status'] = this.activeProject.status;
 			res['passed'] = this.activeProject.passed || -1;
 			this.analytics = res;
-		}, (err)=>{
-			console.log("err", err)
+		}).catch(err=>{
+			console.log("error", err)
 		})
 	}
 

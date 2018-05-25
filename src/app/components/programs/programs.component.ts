@@ -17,6 +17,7 @@ export class ProgramsComponent {
 	programs: any;
 	activeProgram :any = {};
 	analytics:any;
+	token: any;
 
 	constructor(private programsService: ProgramsService, private goalsService: GoalsService,
 				private analyticsService: AnalyticsService, private route: ActivatedRoute,
@@ -31,23 +32,26 @@ export class ProgramsComponent {
        			this.getData('1514489024091');
        		}
    		});
+   		this.token = localStorage.getItem("token");
+		if (this.token) {
+			this.getPrograms();
+		}
 		
-		this.getPrograms();
 	}
 
 	ngOnInit() {
 
    }
 	getPrograms(){
-		this.programsService.programs().subscribe((resp)=>{
+		this.programsService.programs(this.token).then((resp)=>{
 			this.programs = resp;
-		}, (err)=>{
-			console.log(err);
+		}).catch(err=>{
+			console.log("err", err)
 		})
 	}
 	getData(id){
 		
-		this.programsService.getProgram(id).subscribe((data)=>{
+		this.programsService.getProgram(id, this.token).then((data)=>{
 			if (data['datePlannedStart'] != 'NaN-NaN-NaN' && data['datePlannedEnd'] != 'NaN-NaN-NaN' ) {
 				var period = this.monthDiff(data['datePlannedStart'] , data['datePlannedEnd']);
 				// data['prgPeriod'] = this.monthDiff(data['dateActualStart'] , data['dateActualEnd']) + "شهر ";
@@ -79,14 +83,18 @@ export class ProgramsComponent {
 				data['datePlannedEnd'] = 'غير متاح'
 			}
 			$.each(data['goals'], (index, value)=>{
-				this.goalsService.getGoal(value.l1).subscribe((goal)=>{
+				this.goalsService.getGoal(value.l1, this.token).then((goal)=>{
 					value.l1 = goal['name'].replace(/\d+./, '');
+				}).catch(error=>{
+					console.log("error", error)
 				})
 			})
 
 			if (data['manager']) {
-				this.usersService.getUser(data['manager']).subscribe(user=>{
+				this.usersService.getUser(data['manager'], this.token).then(user=>{
 					data['manager'] = user['name']
+				}).catch(error=>{
+					console.log("error", error)
 				})
 			}else{
 				data['manager'] = "غير محدد"
@@ -94,36 +102,17 @@ export class ProgramsComponent {
 
 			data['projects'] = [];
 
-			var settings = {
-					"async": true,
-					"crossDomain": true,
-					"url": "http://35.190.171.93:8001/api/project/list",
-					"method": "POST",
-					"headers": {
-					"content-type": "application/json",
-					"cache-control": "no-cache",
-					"postman-token": "29e34188-41c2-39de-6e02-c4a7590d46f2",
-        			"Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-					"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Key",
-					"Access-Control-Allow-Origin":"*",
-					"Allow-Control-Allow-Origin":"*"
-				},
-				"processData": false,
-				"data": `{\"program\": \"${id}\"}`
-				// "data": "{\"program\": \"1514489024091\"}"
-			}
-
-			$.ajax(settings).done((response)=>{
+			this.programsService.projectsOfProgram(id, this.token).then(response=>{
 				$.each(response, (i, p)=>{
 					data['projects'].push(p.name);
 				})
-				this.activeProgram = data
-				console.log("this.activeProgram", this.activeProgram)
-
+				this.activeProgram = data;
 				this.getAnalytics(id);
+			}).catch(error=>{
+				console.log("error", error)
 			});
 			
-		}, (err)=>{
+		}).catch(err=>{
 			console.log("error", err)
 		})
 
@@ -131,13 +120,13 @@ export class ProgramsComponent {
 	}
 
 	getAnalytics(id){
-		this.analyticsService.planAnalytics('/analytics/program/'+id).subscribe((res)=>{
+		this.analyticsService.planAnalytics('analytics/program/'+id, this.token).then((res)=>{
 			res['completed'] = this.activeProgram.completed;
 			res['quality'] = this.activeProgram.quality;
 			res['status'] = this.activeProgram.status;
 			res['passed'] = this.activeProgram.passed || -1;
 			this.analytics = res;
-		}, (err)=>{
+		}).catch(err=>{
 			console.log("err", err)
 		})
 	}

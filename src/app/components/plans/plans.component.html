@@ -16,7 +16,6 @@
 						<img src="./assets/images/plan1.png">
 						<h3>اﻷهداف الاستراتيجة للخطة</h3>
 					</div>
-					
 					<ul>
 						<li *ngFor="let goal of goals"> {{ "- " +goal.name }}</li>
 					</ul>
@@ -30,7 +29,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-md-5">
+			<div class="col-md-5" *ngIf="analytics">
 				<div class="brdr">
 					<div class="row">	
 						<div class="col-xs-4">

@@ -15,41 +15,45 @@ export class PlansComponent{
 	programs: any;
 	analytics: any;
 	Math: any;
+	token: any;
 
 	constructor(private goalsService: GoalsService, private programsService: ProgramsService, private analyticsService: AnalyticsService) {
 		this.Math = Math;
-		this.getGoals();
-		this.getPrograms();
-		this.getAnalytics();
+		this.token = localStorage.getItem("token");
+		if (this.token) {
+			this.getGoals();
+			this.getPrograms();
+			this.getAnalytics();
+		}
+		
 	}
  
 	getGoals(){
-		this.goalsService.goals().subscribe((resp)=>{
-
+		this.goalsService.goals(this.token).then((resp)=>{
 			$.each(resp, (index, value)=>{
 				value['name'] = value['name'].replace(/\d+./, '');
 			});
 			this.goals = resp;
 
-		}, (err)=>{
+		}).catch(err=>{
 			console.log("err", err)
 		})
 	}
 	getPrograms(){
-		this.programsService.programs().subscribe((res)=>{
+		this.programsService.programs(this.token).then((res)=>{
 			this.programs = res;
-		}, (err)=>{
+		}).catch(err=>{
 			console.log("err", err)
-		})
+		});
 	}
 
 
 	getAnalytics(){
-		this.analyticsService.planAnalytics('analytics').subscribe((res)=>{
+		this.analyticsService.planAnalytics('analytics', this.token).then((res)=>{
 			this.analytics = res;
-		}, (err)=>{
+		}).catch(err=>{
 			console.log("err", err)
-		})
+		});
 	}
 
 }

@@ -23,6 +23,7 @@ import { GoalsService } from './services/goals/goals.service';
 import { GlobalService } from './services/global/global.service';
 import { AnalyticsService } from './services/analytics/analytics.service';
 import { UsersService } from './services/users/users.service';
+import { LoginService } from './services/login/login.service';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { UsersService } from './services/users/users.service';
     GlobalService,
     GoalsService,
     AnalyticsService,
-    UsersService
+    UsersService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

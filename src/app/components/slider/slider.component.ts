@@ -14,28 +14,40 @@ export class SliderComponent {
 	goals: any;
 	vision: any;
 	message: any;
+	token: any;
 
 	constructor(private programsService: ProgramsService,
 				private goalsService: GoalsService,
 				private globalService: GlobalService) {
 
-		this.getContant();
+		this.token = localStorage.getItem("token");
+		if (this.token) {
+			this.getContant();
+		}
 	}
 
 	getContant(){
-		this.programsService.programs().subscribe((res)=>{
+		this.programsService.programs(this.token).then((res)=>{
 			console.log("res slider", res)
 			this.programs = res;
+		}).catch(error=>{
+			console.log("error", error)
 		});
-		this.goalsService.goals().subscribe((res)=>{
+
+		this.goalsService.goals(this.token).then((res)=>{
 			$.each(res, (index, value)=>{
 				value['name'] = value['name'].replace(/\d+./, '');
 			});
 			this.goals = res;
+		}).catch(error=>{
+			console.log(error)
 		});
-		this.globalService.global().subscribe((resp=>{
+		
+		this.globalService.global(this.token).then(resp=>{
 			this.message = resp[0].data.message;
 			this.vision = resp[0].data.vision;
-		}))
+		}).catch(error=>{
+			console.log("error", error)
+		})
 	}
 }
