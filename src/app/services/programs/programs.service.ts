@@ -7,11 +7,11 @@ export class ProgramsService {
 	// token: any;
 	constructor(private api: ApiService) {
 	}
-	
+
 	programs(token){
 		// return this.api.post('program/list');
 		return new Promise((resolve, reject)=>{
-			
+
 			var settings = {
 				"async": true,
 				"crossDomain": true,
@@ -34,12 +34,12 @@ export class ProgramsService {
 	getProgram(id, token){
 		// return this.api.get('program/'+id);
 		return new Promise((resolve, reject)=>{
-			
+
 			var settings = {
 				"async": true,
 				"crossDomain": true,
 				"url": `${this.api.url}/program/${id}?token=${token}`,
-				"method": "POST",
+				"method": "GET",
 				"headers": {
 				"Cache-Control": "no-cache",
 				"Postman-Token": "011e4224-ddb7-fefc-fc4f-dfaf5bdb3b61"

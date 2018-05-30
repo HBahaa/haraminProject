@@ -6,10 +6,10 @@ import { ApiService } from '../api/api.service';
 export class UsersService {
 
 	constructor(private api: ApiService) {}
-	
+
 	users(token){
 		return new Promise((resolve, reject)=>{
-			
+
 			var settings = {
 				"async": true,
 				"crossDomain": true,
@@ -31,12 +31,12 @@ export class UsersService {
 
 	getUser(id, token){
 		return new Promise((resolve, reject)=>{
-			
+
 			var settings = {
 				"async": true,
 				"crossDomain": true,
 				"url": `${this.api.url}/user/${id}?token=${token}`,
-				"method": "POST",
+				"method": "GET",
 				"headers": {
 				"Cache-Control": "no-cache",
 				"Postman-Token": "011e4224-ddb7-fefc-fc4f-dfaf5bdb3b61"

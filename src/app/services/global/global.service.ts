@@ -9,7 +9,7 @@ export class GlobalService {
 
 	global(token){
 		return new Promise((resolve, reject)=>{
-			
+
 			var settings = {
 				"async": true,
 				"crossDomain": true,
@@ -28,5 +28,4 @@ export class GlobalService {
 			});
 		})
 	}
-
 }

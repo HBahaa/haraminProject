@@ -5,10 +5,10 @@ import { ApiService } from '../api/api.service';
 @Injectable()
 export class ProjectsService {
 	constructor(private api: ApiService) {}
-	
+
 	projects(token){
 		return new Promise((resolve, reject)=>{
-			
+
 			var settings = {
 				"async": true,
 				"crossDomain": true,
@@ -30,12 +30,12 @@ export class ProjectsService {
 
 	getProject(id, token){
 		return new Promise((resolve, reject)=>{
-			
+
 			var settings = {
 				"async": true,
 				"crossDomain": true,
 				"url": `${this.api.url}/project/${id}?token=${token}`,
-				"method": "POST",
+				"method": "GET",
 				"headers": {
 				"Cache-Control": "no-cache",
 				"Postman-Token": "011e4224-ddb7-fefc-fc4f-dfaf5bdb3b61"
@@ -49,5 +49,5 @@ export class ProjectsService {
 			});
 		})
 	}
-	
+
 }
