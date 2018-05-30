@@ -18,7 +18,7 @@ export class ProjectsComponent{
 
 	constructor(private projectsService: ProjectsService, private analyticsService: AnalyticsService,
 				private usersService: UsersService) {
-		this.token = localStorage.getItem("token");
+		this.token = localStorage.getItem("token") || `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Mjc4MDMzNTEsImRhdGEiOiJ7XCJfaWRcIjpcImFhXCIsXCJuYW1lXCI6XCLYry4g2YXYrdmF2K8g2KjZhiDYo9it2YXYryDYp9mE2K7YttmK2LHZilwiLFwidGl0bGVcIjpcItin2YTYrti22YrYsdmKXCIsXCJwb3NpdGlvblwiOlwi2LnZhdmK2K8g2KfZhNmD2YTZitipXCIsXCJtb2JpbGVcIjpcIjA1MDQzNjY5NzVcIixcIndoYXRzYXBwXCI6XCIwNTA0MzY2OTc1XCIsXCJ0ZWxlcGhvbmVcIjpcIlwiLFwiZW1haWwxXCI6XCJtMDUwNDM2Njk3NUBnbWFpbC5jb21cIixcImVtYWlsMlwiOlwiXCIsXCJyb2xlXCI6XCJhZG1pblwiLFwiZW50aXR5bDFcIjpcIjE1MTEzMDg3NDY0NjVcIixcImVudGl0eWwyXCI6XCJFMVwiLFwiZW50aXR5bDNcIjpcIjE1MTEzOTI4NDI3NDJcIixcImVudGl0eWw0XCI6XCJcIixcInVzZXJuYW1lXCI6XCJ1c2VyMVwiLFwicGFzc3dvcmRcIjpcIjEyMzRcIixcImFjY2Vzc1wiOntcImVudGl0eVwiOnRydWUsXCJ0YXNrXCI6dHJ1ZSxcInByb2plY3RcIjp0cnVlLFwicHJvZ3JhbVwiOnRydWUsXCJnb2FsXCI6dHJ1ZSxcInVzZXJcIjp0cnVlLFwidG90YWxcIjp0cnVlLFwiaW50cm9cIjp0cnVlLFwicmVwb3J0XCI6dHJ1ZSxcImFuYWx5dGljc1wiOnRydWV9LFwiYXV0aFRhc2tcIjoxNSxcImF1dGhQcm9qZWN0XCI6MTUsXCJhdXRoUHJvZ3JhbVwiOjQsXCJhdXRoR29hbHNcIjoxMixcImF1dGhVc2Vyc1wiOjIsXCJhdXRoRW50aXRpZXNcIjowfSIsImlhdCI6MTUyNzcxNjk1MX0.UoJmfh2EyL-JPvxxuSHq0f6HsUTAW7-rPrVtdWBcmhQ`;
 		if (this.token) {
 			this.getData('1514490491256')
 			this.getProjects();
@@ -35,7 +35,7 @@ export class ProjectsComponent{
 
 	getData(id){
 		this.projectsService.getProject(id, this.token).then((res)=>{
-			
+
 			if (res['datePlannedStart'] != 'NaN-NaN-NaN' && res['datePlannedEnd'] != 'NaN-NaN-NaN' ) {
 				var period = this.monthDiff(res['datePlannedStart'] , res['datePlannedEnd']);
 				// res['prgPeriod'] = this.monthDiff(res['dateActualStart'] , res['dateActualEnd']) + "شهر ";
@@ -46,7 +46,7 @@ export class ProjectsComponent{
 					if(period['days'] || period['days'] != 0){
 						if(res['prgPeriod']) res['prgPeriod'] += period['days'] + " يوم ";
 						else res['prgPeriod'] = period['days'] + " أيام/يوم ";
-						
+
 					}
 				}
 			}
@@ -66,7 +66,7 @@ export class ProjectsComponent{
 			if (res['datePlannedEnd'] == 'NaN-NaN-NaN') {
 				res['datePlannedEnd'] = 'غير متاح'
 			}
-			
+
 			if (res['manager']) {
 				this.usersService.getUser(res['manager'], this.token).then(user=>{
 					res['manager'] = user['name']

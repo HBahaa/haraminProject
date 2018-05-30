@@ -32,11 +32,11 @@ export class ProgramsComponent {
        			this.getData('1514489024091');
        		}
    		});
-   		this.token = localStorage.getItem("token");
+   		this.token = localStorage.getItem("token") || || `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Mjc4MDMzNTEsImRhdGEiOiJ7XCJfaWRcIjpcImFhXCIsXCJuYW1lXCI6XCLYry4g2YXYrdmF2K8g2KjZhiDYo9it2YXYryDYp9mE2K7YttmK2LHZilwiLFwidGl0bGVcIjpcItin2YTYrti22YrYsdmKXCIsXCJwb3NpdGlvblwiOlwi2LnZhdmK2K8g2KfZhNmD2YTZitipXCIsXCJtb2JpbGVcIjpcIjA1MDQzNjY5NzVcIixcIndoYXRzYXBwXCI6XCIwNTA0MzY2OTc1XCIsXCJ0ZWxlcGhvbmVcIjpcIlwiLFwiZW1haWwxXCI6XCJtMDUwNDM2Njk3NUBnbWFpbC5jb21cIixcImVtYWlsMlwiOlwiXCIsXCJyb2xlXCI6XCJhZG1pblwiLFwiZW50aXR5bDFcIjpcIjE1MTEzMDg3NDY0NjVcIixcImVudGl0eWwyXCI6XCJFMVwiLFwiZW50aXR5bDNcIjpcIjE1MTEzOTI4NDI3NDJcIixcImVudGl0eWw0XCI6XCJcIixcInVzZXJuYW1lXCI6XCJ1c2VyMVwiLFwicGFzc3dvcmRcIjpcIjEyMzRcIixcImFjY2Vzc1wiOntcImVudGl0eVwiOnRydWUsXCJ0YXNrXCI6dHJ1ZSxcInByb2plY3RcIjp0cnVlLFwicHJvZ3JhbVwiOnRydWUsXCJnb2FsXCI6dHJ1ZSxcInVzZXJcIjp0cnVlLFwidG90YWxcIjp0cnVlLFwiaW50cm9cIjp0cnVlLFwicmVwb3J0XCI6dHJ1ZSxcImFuYWx5dGljc1wiOnRydWV9LFwiYXV0aFRhc2tcIjoxNSxcImF1dGhQcm9qZWN0XCI6MTUsXCJhdXRoUHJvZ3JhbVwiOjQsXCJhdXRoR29hbHNcIjoxMixcImF1dGhVc2Vyc1wiOjIsXCJhdXRoRW50aXRpZXNcIjowfSIsImlhdCI6MTUyNzcxNjk1MX0.UoJmfh2EyL-JPvxxuSHq0f6HsUTAW7-rPrVtdWBcmhQ`;
 		if (this.token) {
 			this.getPrograms();
 		}
-		
+
 	}
 
 	ngOnInit() {
@@ -50,7 +50,7 @@ export class ProgramsComponent {
 		})
 	}
 	getData(id){
-		
+
 		this.programsService.getProgram(id, this.token).then((data)=>{
 			if (data['datePlannedStart'] != 'NaN-NaN-NaN' && data['datePlannedEnd'] != 'NaN-NaN-NaN' ) {
 				var period = this.monthDiff(data['datePlannedStart'] , data['datePlannedEnd']);
@@ -62,14 +62,14 @@ export class ProgramsComponent {
 					if(period['days'] || period['days'] != 0){
 						if(data['prgPeriod']) data['prgPeriod'] += period['days'] + " يوم ";
 						else data['prgPeriod'] = period['days'] + " أيام/يوم ";
-						
+
 					}
 				}
 			}
 			else{
 				data['prgPeriod'] = 'غير متاح';
 			}
-			
+
 			if (data['dateActualStart'] == 'NaN-NaN-NaN') {
 				data['dateActualStart'] = 'غير متاح'
 			}
@@ -111,7 +111,7 @@ export class ProgramsComponent {
 			}).catch(error=>{
 				console.log("error", error)
 			});
-			
+
 		}).catch(err=>{
 			console.log("error", err)
 		})
