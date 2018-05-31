@@ -160,7 +160,7 @@ export class ProgramsComponent {
 
 	myFilter(objs){
     return objs.map((obj)=>{
-      return (({ _id, completed, status, passed, quality }) => ({ _id, completed, status, passed, quality }))(obj)
+      return (({ _id, status}) => ({ _id, status}))(obj)
     })
   }
 
