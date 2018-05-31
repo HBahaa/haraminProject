@@ -53,7 +53,9 @@ export class PlansComponent{
 			this.analytics = res;
 		}).catch(err=>{
 			console.log("err", err)
-		});
+		});		
 	}
+
+
 
 }

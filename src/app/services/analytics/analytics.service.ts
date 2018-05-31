@@ -8,7 +8,7 @@ export class AnalyticsService {
 
 	planAnalytics(endPoint, token){
 		return new Promise((resolve, reject)=>{
-			
+			console.log("url", `${this.api.url}/${endPoint}?token=${token}`);
 			var settings = {
 				"async": true,
 				"crossDomain": true,
@@ -24,7 +24,7 @@ export class AnalyticsService {
 				resolve(response);
 			}).fail(error=>{
 				reject(error);
-			});
+			}); 
 		})
 	}
 }
