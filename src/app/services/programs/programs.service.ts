@@ -81,4 +81,10 @@ export class ProgramsService {
 			});
 		})
 	}
+
+	myFilter(objs){
+	    return objs.map((obj)=>{
+	      return (({ _id, status}) => ({ _id, status}))(obj)
+	    })
+	}
 }

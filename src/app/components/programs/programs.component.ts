@@ -107,7 +107,7 @@ export class ProgramsComponent {
 				$.each(response, (i, p)=>{
 					data['projects'].push(p.name);
 				});
-				this.projects = this.myFilter(response);
+				this.projects = this.programsService.myFilter(response);
 				this.analytics["LEN"] = this.projects.length;
 				let STP = 0 , ONT = 0, LTE = 0;
 				$.each(this.projects, (i, proj)=>{
@@ -122,6 +122,11 @@ export class ProgramsComponent {
 				this.analytics["LTE"] = LTE;
 				this.analytics["STP"] = STP;
 				this.analytics["ONT"] = ONT;
+				if (!data["passed"]) {
+					this.analytics["passed"] = 0;
+				}else{
+					this.analytics["passed"] = data["passed"];
+				}
 				this.analytics["completed"] = data["completed"];
 				this.analytics["quality"] = data["quality"];
 				this.analytics["status"] = data["status"];
@@ -157,11 +162,4 @@ export class ProgramsComponent {
 	    }
 	    return diff;
 	}
-
-	myFilter(objs){
-    return objs.map((obj)=>{
-      return (({ _id, status}) => ({ _id, status}))(obj)
-    })
-  }
-
 }
