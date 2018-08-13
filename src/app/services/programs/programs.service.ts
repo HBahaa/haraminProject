@@ -72,7 +72,6 @@ export class ProgramsService {
 				},
 				"processData": false,
 				"data": `{\"program\": \"${id}\"}`
-				// "data": "{\"program\": \"1514489024091\"}"
 			}
 
 			$.ajax(settings).done((response)=>{
@@ -81,5 +80,11 @@ export class ProgramsService {
 				reject(error);
 			});
 		})
+	}
+
+	myFilter(objs){
+	    return objs.map((obj)=>{
+	      return (({ _id, status}) => ({ _id, status}))(obj)
+	    })
 	}
 }

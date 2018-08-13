@@ -16,8 +16,9 @@ export class ProgramsComponent {
 	id: any;
 	programs: any;
 	activeProgram :any = {};
-	analytics:any;
+	analytics:any = {};
 	token: any;
+	projects: any ;
 
 	constructor(private programsService: ProgramsService, private goalsService: GoalsService,
 				private analyticsService: AnalyticsService, private route: ActivatedRoute,
@@ -100,14 +101,37 @@ export class ProgramsComponent {
 				data['manager'] = "غير محدد"
 			}
 
-			data['projects'] = [];
+			data['projects'] = []; 
 
 			this.programsService.projectsOfProgram(id, this.token).then(response=>{
 				$.each(response, (i, p)=>{
 					data['projects'].push(p.name);
-				})
+				});
+				this.projects = this.programsService.myFilter(response);
+				this.analytics["LEN"] = this.projects.length;
+				let STP = 0 , ONT = 0, LTE = 0;
+				$.each(this.projects, (i, proj)=>{
+					if (proj.status == 3) {
+						STP += 1;
+					}else if (proj.status == 4) {
+						ONT += 1;
+					}else if (proj.status == 5) {
+						LTE += 1;
+					}
+				});
+				this.analytics["LTE"] = LTE;
+				this.analytics["STP"] = STP;
+				this.analytics["ONT"] = ONT;
+				if (!data["passed"]) {
+					this.analytics["passed"] = 0;
+				}else{
+					this.analytics["passed"] = data["passed"];
+				}
+				this.analytics["completed"] = data["completed"];
+				this.analytics["quality"] = data["quality"];
+				this.analytics["status"] = data["status"];
+
 				this.activeProgram = data;
-				this.getAnalytics(id);
 			}).catch(error=>{
 				console.log("error", error)
 			});
@@ -117,18 +141,6 @@ export class ProgramsComponent {
 		})
 
 
-	}
-
-	getAnalytics(id){
-		this.analyticsService.planAnalytics('analytics/program/'+id, this.token).then((res)=>{
-			res['completed'] = this.activeProgram.completed;
-			res['quality'] = this.activeProgram.quality;
-			res['status'] = this.activeProgram.status;
-			res['passed'] = this.activeProgram.passed || -1;
-			this.analytics = res;
-		}).catch(err=>{
-			console.log("err", err)
-		})
 	}
 
 	monthDiff(d1, d2) {
@@ -148,8 +160,6 @@ export class ProgramsComponent {
 	    	"months": months,
 	    	"days": days
 	    }
-	    return diff
-	    // return months <= 0 ? 0 : months;
+	    return diff;
 	}
-
 }

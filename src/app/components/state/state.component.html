@@ -9,14 +9,14 @@
 				<p *ngIf="state.status == 6 ? true : false"> ملغى</p>
 				<p *ngIf="state.status == 7 ? true : false"> منتهي</p>
 				<p style="font-size: 11px;" *ngIf="state.status == 8 ? true : false"> البيانات غير مكتملة</p>
-				<p *ngIf="!state.status "> مجهول </p>
+				<p *ngIf="!state.status"> مجهول </p>
 			</div>
 			<h4>الحالة الراهنة</h4>
 		</div>
 
 	<div class="block2">
 		<div class="circle2">
-			<p>{{ state.passed && state.passed < 0 ? 0: state.passed }}</p>
+			<p>{{ state.passed < 0 ? 0: state.passed }}</p>
 		</div>
 		<h4>المنقضى من فترة التنفيذ</h4>
 	</div>
